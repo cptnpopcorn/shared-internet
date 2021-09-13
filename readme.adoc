@@ -1,1 +1,8 @@
+= Project Description
 
+This repository contains the concepts, hardware setup and utilities used to create and maintain the in-house optical network of the association Éco du Boiron.
+Everything is transparent and peer review is welcome, espacially regarding security aspects. Hopefully, the concepts may help others in a similar environment.
+
+== Usage guidelines
+
+* No sensible information is to be kept here, like passwords, user identities or any personal information
