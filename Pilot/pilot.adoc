@@ -9,5 +9,13 @@
 === Case#3
 DHCP Server on the L3 Switch
 
-=== Case#4
+
+
+=== Case#4 - DHCP on the Router and Private VLAN on the Switch.
+Plus we tried DHCP Snooping option.
+
+That test scenario worked perfectly.
+
+
+
 
