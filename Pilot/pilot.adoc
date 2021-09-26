@@ -16,6 +16,6 @@ Plus we tried DHCP Snooping option.
 
 That test scenario worked perfectly.
 
-
-
-
+Switch config files on:
+running-config DHCP on the Router and Private VLAN and DHCP Snooping.cfg
+running-config DHCP on the Router and Private VLAN.cfg
