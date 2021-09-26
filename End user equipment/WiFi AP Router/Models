@@ -1,0 +1,8 @@
+"light" - mostly internet, no serious home server, no fast internal WiFi transfers needed, but sufficient for streaming TV stuff (with the option to use a cable)
+=> Tenda WL-Router N301 - has 3 ethernet 100 mbit ports and standard old 2.4 Ghz band with 300 mbit, sufficient for 90% of the people, CHF 16 at digitec.ch
+
+"medium" - maybe some NAS at home, internal connections between devices, big files moved around regularly
+=> MIKRO TIK hAP ac² - has 1GB ethernet ports and dual band WiFi with 1GB over 5Ghz, CHF 70 at brack.ch or microspot.ch
+
+"versatile" - same as medium plus connection of analogue phones or DECT handsets (with some VoIP / SIP account)
+=> TP-LINK Archer VR600v, same as MIKRO TIK for bandwidth, but has phone connetors and acts as a DECT base station (with HD voice, also labeled CAT-iq 2.0, this is what is built into the sunrise box as well), CHF 110 at techmania.ch (but seems out of stock generally at the moment)
