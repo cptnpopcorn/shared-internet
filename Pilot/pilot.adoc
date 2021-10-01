@@ -2,12 +2,13 @@
 
 == How to setup a basic networking
 
-=== Case#1
+=== Case#1 --Static IP address per user
+Switch config files on this file attached:
+[running-config test1 static ip case.cfg]
 
 === Case#2
 
-=== Case#3
-DHCP Server on the L3 Switch
+=== Case#3 --DHCP Server on the L3 Switch
 
 
 
@@ -16,6 +17,6 @@ Plus we tried DHCP Snooping option.
 
 That test scenario worked perfectly.
 
-Switch config files on:
-running-config DHCP on the Router and Private VLAN and DHCP Snooping.cfg
-running-config DHCP on the Router and Private VLAN.cfg
+Switch config files on these files attached:
+[running-config DHCP on the Router and Private VLAN and DHCP Snooping.cfg]
+[running-config DHCP on the Router and Private VLAN.cfg]
