@@ -1,0 +1,78 @@
+= Points to clarify / explore / address
+
+Collecting topics that need consideration, identification of available options, choosing the appropriate ones, and testing. Once verified, the final choice will be integrated into the running configuration manual.
+
+== Network layout
+
+=== Possible configurations
+
+==== lots of small routed subnets (verified to work)
+* for IPv4 only
+* for IPv6 => NAT66 - not supported by switch out-of-the box, difficult with dynamic IPv6 network prefix
+
+==== private VLAN (verified to work)
+* for IPv4, IPv6
+* to protect from IP conflicts / hi-jacking, activate DHCP snooping
+
+==== Stacking
+
+== Configuration management
+
+=== Switch configuration
+
+==== Building Installation switches (DGS-1216)
+
+==== Ubiquity Edge Router X
+
+==== Shared Internet switches (DGS-3130 series)
+* save / load configuration file (= CLI script)
+
+== Security
+
+=== Configuration access
+
+==== Modem
+* only via port not connected to building (think about remote troubleshooting later)
+* protected by master password
+
+==== Shared Internet switches (DGS-3130 series)
+* protected by master password
+* configuration only via management port (to start with)
+* disable in-band web UI
+
+==== Building Installation switches (DGS-1216)
+
+==== Ubiquity Edge Router X
+
+=== Restricted Modem access
+For access port on modem (connected to building network), forbid any access to modem but
+
+* DHCP
+* IGMP
+* UPNP - exceptions (specific MACs)
+
+==== IPMB (IP-MAC-port binding)
+
+==== ACLs
+
+=== Modem configuration access
+
+== DHCP
+
+== DNS
+
+== Application-specific adjustments
+
+=== Streaming / multi-cast
+
+===== IGMP
+
+=== UPNP port forwarding
+* for messengers, file sharing, gaming (hosting a server, live chat..)
+
+==== Known use cases
+* Nintendo Switch (reported by Supernet staff)
+
+=== static port forwarding
+* individual VPN server
+* collaboration server like NextCloud
