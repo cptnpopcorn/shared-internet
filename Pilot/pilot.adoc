@@ -4,7 +4,7 @@
 
 === Case#1 --Static IP address per user
 Switch config files on this file attached:
-[running-config test1 static ip case.cfg]
+running-config test1 static ip case.cfg
 
 === Case#2
 
@@ -18,5 +18,5 @@ Plus we tried DHCP Snooping option.
 That test scenario worked perfectly.
 
 Switch config files on these files attached:
-[running-config DHCP on the Router and Private VLAN and DHCP Snooping.cfg]
-[running-config DHCP on the Router and Private VLAN.cfg]
+running-config DHCP on the Router and Private VLAN and DHCP Snooping.cfg
+running-config DHCP on the Router and Private VLAN.cfg
