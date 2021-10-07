@@ -22,7 +22,7 @@ image::sites.svg[opts=inline]
 
 == FTTH connection
 
-Each buildings is equipped with optical fibers linking all facilities (apartment, technical room, common room) to a technical room in the basement.
+Each building is equipped with optical fibers linking all facilities (apartment, technical room, common room) to a technical room in the basement.
 
 Two public network operators link the buildings to their network, with individual entry points in every building (BEPs). They run passive optical networks with either 1GBit bandwidth (PON) or 10GBit bandwidth (XGS-PON).
 
