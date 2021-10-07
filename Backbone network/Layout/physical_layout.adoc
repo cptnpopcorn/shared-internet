@@ -1,0 +1,34 @@
+= Physical Network Layout
+
+This document describes the physical aspects of the in-house network.
+
+== Site
+
+There are three interconnected buildings. Alternative naming is used either in the construction environment or when referring to the postal addresses.
+
+image::sites.svg[opts=inline]
+|===
+|Construction Building Code |Postal Address: Chemin des Tines..
+
+|A
+|3
+
+|B
+|1
+
+|C
+|5
+|===
+
+== FTTH connection
+
+Each buildings is equipped with optical fibers linking all facilities (apartment, technical room, common room) to a technical room in the basement.
+
+Two public network operators link the buildings to their network, with individual entry points in every building (BEPs). They run passive optical networks with either 1GBit bandwidth (PON) or 10GBit bandwidth (XGS-PON).
+
+* NetPlus Léman (PON only) https://netplusleman.ch/
+* Swisscom (XGS-PON and PON) https://www.swisscom.ch/
+
+According to federal regulationsfootnote:[published in https://www.bakom.admin.ch/dam/bakom/en/dokumente/20100715_l1_standardedition20.pdf.download.pdf/technical_guidelinesconcerningftthin-houseinstallationsphysicalm.pdf], each connected facility has optical termination outlets (OTOs) with 4 optical connectors of type LC/APC.
+
+Those connectors terminate 4 single mode fibers of type OS2, that are usually assigned to one or more operators and are usually directly soldered to operator fibers at the BEPs.
