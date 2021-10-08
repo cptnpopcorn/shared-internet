@@ -1,3 +1,4 @@
+:imagesdir: img
 = Physical Network Layout
 
 This document describes the physical aspects of the in-house network.
@@ -29,6 +30,23 @@ Two public network operators link the buildings to their network, with individua
 * NetPlus Léman (PON only) https://netplusleman.ch/
 * Swisscom (XGS-PON and PON) https://www.swisscom.ch/
 
+image::ftth-house.svg[opts=inline]
 According to federal regulationsfootnote:[published in https://www.bakom.admin.ch/dam/bakom/en/dokumente/20100715_l1_standardedition20.pdf.download.pdf/technical_guidelinesconcerningftthin-houseinstallationsphysicalm.pdf], each connected facility has optical termination outlets (OTOs) with 4 optical connectors of type LC/APC.
 
 Those connectors terminate 4 single mode fibers of type OS2, that are usually assigned to one or more operators and are usually directly soldered to operator fibers at the BEPs.
+
+image::oto.png[OTO,160,float="right"]
+Of those 4 fibers,
+
+* 2 are occupied by Swisscom
+* 1 by NetPlus Léman
+* 1 is left available for our in-house network
+
+== Building-to-Building
+
+The buildings are interconnected by OS2 monomode fiber cables including 6 strands. Connections exist between the technical rooms as follows
+
+* C <- -> A
+* C <- -> B
+
+image::sites-links.svg[opts=inline]
