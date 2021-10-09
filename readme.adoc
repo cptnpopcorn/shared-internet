@@ -6,3 +6,7 @@ Everything is transparent and peer review is welcome, especially regarding secur
 == Usage guidelines
 
 * No sensible information is to be kept here, like passwords, user identities or any personal information
+
+== Documentation
+
+xref:Network/Layout/physical_layout.adoc[PhyiscalNetwork Layout]
