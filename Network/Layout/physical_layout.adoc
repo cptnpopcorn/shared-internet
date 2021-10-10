@@ -23,7 +23,7 @@ image::sites.svg[opts=inline]
 
 == FTTH connection
 
-Each building is equipped with optical fibers linking all facilities (apartment, technical room, common room) to a technical room in the basement.
+Each building is equipped with optical fibers linking all rooms (apartment, technical room, common room) to a technical room in the basement.
 
 Two public network operators link the buildings to their network, with individual entry points in every building (BEPs). They run passive optical networks with either 1GBit bandwidth (PON) or 10GBit bandwidth (XGS-PON).
 
@@ -31,7 +31,7 @@ Two public network operators link the buildings to their network, with individua
 * Swisscom (XGS-PON and PON) https://www.swisscom.ch/
 
 image::ftth-house.svg[opts=inline]
-According to federal regulationsfootnote:[published in https://www.bakom.admin.ch/dam/bakom/en/dokumente/20100715_l1_standardedition20.pdf.download.pdf/technical_guidelinesconcerningftthin-houseinstallationsphysicalm.pdf], each connected facility has optical termination outlets (OTOs) with 4 optical connectors of type LC/APC.
+According to federal regulationsfootnote:[published in https://www.bakom.admin.ch/dam/bakom/en/dokumente/20100715_l1_standardedition20.pdf.download.pdf/technical_guidelinesconcerningftthin-houseinstallationsphysicalm.pdf], each connected room has optical termination outlets (OTOs) with 4 optical connectors of type LC/APC.
 
 Those connectors terminate 4 single mode fibers of type OS2, that are usually assigned to one or more operators and are usually directly soldered to operator fibers at the BEPs.
 
@@ -42,6 +42,8 @@ Of those 4 fibers,
 * 1 by NetPlus Léman
 * 1 is left available for our in-house network
 
+Note that
+
 == Building-to-Building
 
 The buildings are interconnected by OS2 monomode fiber cables including 6 strands. Connections exist between the technical rooms as follows
@@ -50,3 +52,36 @@ The buildings are interconnected by OS2 monomode fiber cables including 6 strand
 * C <- -> B
 
 image::sites-links.svg[opts=inline]
+
+This yields a star topology with C in the center, when using a single strand between two buildings. A ring topology can also be implemented by using more than one strand between two buildings. Due to cost constraints, the active equipment is not used in a way where we could take advantage of a ring topology.
+
+== In-Building
+
+Within one building, all physical links join the technical room (star topology).
+
+=== Links To Rooms (mainly apartments)
+
+The FTTH layout requires optical cables of type OS2 to join all connected rooms with the technical room. 4 strands of fiber link each room with the technical room. On the room side, they are terminated by a on-the-wall OTO.
+
+=== Links to Building Equipment (heating, solar panels, other monitoring)
+
+The majority of technical building installations that need Internet connectivity are connected to the technical room via copper Ethernet cables. For long distances, OS2 optical cable is used, with multiple strands. In those cases, an OTO is present close to the installation (requiring a media converter to connect the RJ45-based devices) and another one in the technical room.
+
+=== Technical Room
+
+Each technical room is equipped with
+
+* A 42 units height rack for patch panels and active network equipment
+* A BEP, receiving external optical cables owned by the operators
+* Cables joining the BEP with 4 optical strands going to OTOs in each room (apartments etc.), 3 of those strands being soldered directly with the operator strands. These OTOs have subscriber identifier numbers (SINs) that allow subscription to one of the operators. The joints between in-house fibers and operator fibers are spliced, in a point to multi-point configuration (P2MP) with up to approximately 32 rooms sharing the same physical operator medium.
+* Wall-mount OTOs with SINs that connect the technical room itself to the BEP (and thus the operator network)
+* Patch panels in the rack that receive 1 out of 4 strands from each room, that are not soldered to operator fibers. This strand is fed out of the BEP again (not connected to any operator), and connected to that panel. The panels provide 24 duplex LC/APC connectors each (but not for duplex operation). One such panel provides connectors to the in-house strands of 48 rooms.
+* Patch panels in the rack that terminate the building-to-building fiber cables with the same type of LC/APC connectors as the panels connecting the rooms.
+* One or more primary managed layer 3 optical switches with 24 SFP, 2 10GBASE-T, and 4 SFP+ connectors, of the model D-Link DGS-3130-30S. Those switches provide cross-building connectivity between modems (for operator subscriptions), rooms and second-level RJ45 switches.
+* One secondary managed layer 2 switch with 16 RJ45 and 2 SFP connectors, of the model D-Link 1210-16. Those switches provide connectivity between modems (for operator subscriptions), technical installations (primarily on RJ45 ports), and primary-level switches (on SFP ports, to provide cross-building connectivity).
+
+The _primary_ technical room in building C is furthermore equipped with
+
+* A modem serving a subscription providing a set of public IP addresses, to allow incoming connections to specific technical devices, as well as outgoing connectivity for more technical devices using a shared public IP address via DHCP + masquerading NAT
+* A modem serving a broadband subscription with a single dynamic IP address, to provide Internet access to a subset of rooms.
+* A layer 3 router of model Ubiquity Edge Router X. This router provides DHCP and NAT masquerading for the outgoing connectivity for a subset of technical devices.

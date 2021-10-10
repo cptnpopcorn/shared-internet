@@ -9,4 +9,4 @@ Everything is transparent and peer review is welcome, especially regarding secur
 
 == Documentation
 
-xref:Network/Layout/physical_layout.adoc[PhyiscalNetwork Layout]
+xref:Network/Layout/physical_layout.adoc[Phyiscal Network Layout]
