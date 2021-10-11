@@ -85,3 +85,13 @@ The _primary_ technical room in building C is furthermore equipped with
 * A modem serving a subscription providing a set of public IP addresses, to allow incoming connections to specific technical devices, as well as outgoing connectivity for more technical devices using a shared public IP address via DHCP + masquerading NAT
 * A modem serving a broadband subscription with a single dynamic IP address, to provide Internet access to a subset of rooms.
 * A layer 3 router of model Ubiquity Edge Router X. This router provides DHCP and NAT masquerading for the outgoing connectivity for a subset of technical devices.
+
+=== Active Network Equipment
+
+|===
+|Inventory Code |Location
+
+|TBD
+|TBD
+
+|===

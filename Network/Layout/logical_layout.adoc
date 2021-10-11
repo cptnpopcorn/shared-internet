@@ -1,0 +1,65 @@
+:imagesdir: img
+= Logical Network Layout
+
+This document describes the configuration of the active network components.
+
+== Virtual Local Area Networks (https://en.wikipedia.org/wiki/Virtual_LAN[VLANs])
+
+To isolate devices and allow only specific communication relations, while installing only a minimum of physical links (thus reducing costs), it is common practice to define so-called VLANs.
+
+The simplest implementation of this concept is to assign specific switch ports to logical https://en.wikipedia.org/wiki/Data_link_layer[layer 2] local networks. Only ports assigned to the same logical network (VLAN) are visible to each other. To distinguish those VLANs, they are identified by numbers (VLAN IDs).
+
+More advanced concepts exist, to simplify the configuration of typical application scenarios and network topologies. We use two of those, that are implemented by D-Link managed switches:
+
+* https://eu.dlink.com/uk/en/support/faq/switches/layer-2-gigabit/dgs-series/es_dgs_1510_asymmetric_vlan_red_corporativa_e_invitados[Asymmetric VLAN] (DGS-1210 series)
+* https://www.geeksforgeeks.org/private-vlan/[Private VLAN] (DGS-3130 series)
+
+Both variants allow connectivity between two sets of ports but without implicitly connecting the ports within one of those sets. This is sometimes called the "hotel setup".
+
+=== VLAN ID assignment
+
+Packets are assigned to specific VLANs by 'tagging' them with a special layer 2 packet header, containing the VLAN ID. In most cases, this happens when untagged ("normal") packets enter a specific switch port that is configured as an "access" or "host" port. They carry that VLAN ID when passing though the switch fabric but loose them as soon as they exit the switch via another access port.
+
+Switch ports can also be configured as https://www.practicalnetworking.net/stand-alone/vlans/["trunk" ports]. Those ports only accept or output tagged packets, untouched. That way they can travel to another switch or router, where they are still identifiable with respect to the VLAN they belong to.
+
+=== VLAN IDs
+
+Derived from our physical network layout and the need to effectively separate most devices from each other, we define VLAN IDs as follows:
+
+|===
+|VLAN ID | Purpose | Switch Ports
+
+|100
+|uplink to modem with 8 static public IPs { IP~P0~ .. IP~P7~ } for technical monitoring
+|TBD
+
+|200
+|masquerading NAT + DHCP router - public port with fixed IP~P0~
+|TBD
+
+|4__nn__
+|technical devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router
+|TBD
+
+|20__n__
+|devices configured for public IP~P__n__~ with __n__ = { 1 .. 7 }
+|TBD
+
+|===
+
+== https://en.wikipedia.org/wiki/Stackable_switch[Stacking]
+
+To provide building-to-building connectivity, we use the stacking features of the DGS-3130 series switches. Those switches have 10GBit ports that can be put into a special mode, where they function as a transparent bus between up to 9 switches of that series.
+
+The set of switches connected in that way is referred to as a stack. From the administrators point of view, the switches participating in a stack can be configured as one entity, by connecting to the designated master switch only. The port addressing includes not only the port number, but also the stack ID of the switch they belong to. This ID is configured explicitly before adding a switch to the stack.
+
+|===
+|Switch inventory code |Location |Stack ID |Stack Priority |Linked Switches (Stack ID)
+
+|
+|
+|
+|
+|
+
+|===
