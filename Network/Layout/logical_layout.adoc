@@ -27,23 +27,25 @@ Switch ports can also be configured as https://www.practicalnetworking.net/stand
 Derived from our physical network layout and the need to effectively separate most devices from each other, we define VLAN IDs as follows:
 
 |===
-|VLAN ID | Purpose | Switch Ports
+|VLAN ID | Purpose
 
 |100
 |uplink to modem with 8 static public IPs { IP~P0~ .. IP~P7~ } for technical monitoring
-|TBD
 
 |200
 |masquerading NAT + DHCP router - public port with fixed IP~P0~
-|TBD
 
 |4__nn__
 |technical devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router
-|TBD
 
 |20__n__
 |devices configured for public IP~P__n__~ with __n__ = { 1 .. 7 }
-|TBD
+
+|1000
+|uplink to modem for community uplink with dynamic IP / primary of private VLAN
+
+|1100
+|all rooms eligible for community access / isolated of private VLAN
 
 |===
 
@@ -56,10 +58,22 @@ The set of switches connected in that way is referred to as a stack. From the ad
 |===
 |Switch inventory code |Location |Stack ID |Stack Priority |Linked Switches (Stack ID)
 
-|
-|
-|
-|
-|
+|SW1-003
+|Local Elec C (Tines 5C)
+|1
+|12
+|4,7
+
+|SW1-004
+|Local Elec A (Tines 3C)
+|4
+|6
+|1
+
+|SW1-001
+|Local Elec B (Tines 1)
+|7
+|6
+|1
 
 |===

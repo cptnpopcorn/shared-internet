@@ -86,12 +86,170 @@ The _primary_ technical room in building C is furthermore equipped with
 * A modem serving a broadband subscription with a single dynamic IP address, to provide Internet access to a subset of rooms.
 * A layer 3 router of model Ubiquity Edge Router X. This router provides DHCP and NAT masquerading for the outgoing connectivity for a subset of technical devices.
 
-=== Active Network Equipment
+=== Switch / Router / Modem Placement and Port Assignments
 
 |===
-|Inventory Code |Location
+|Location |Inventory Code |Type |Ports |Link |VLAN ID
 
+|Local Elec C(5C)
+|SW1-003
+|DGS-3130-30S
+|28
+|SW1-004
+|stack
+
+|
+|
+|
+|30
+|SW1-001
+|stack
+
+|
+|
+|
+|24
+|SW3-005
+|trunk
+
+|
+|
+|
+|26 (10GBASE-T)
+|TBD (Modem Zyxel AX7501-B0)
+|1000
+
+|
+|
+|
+|1 - 23
+|Rooms Patch Panel C(5)
+|1100
+
+|
+|SW3-005
+|DGS-1210-16
+|20 (SFP)
+|SW1-003
+|trunk
+
+|
+|
+|
+|19 (SFP)
+|Local Principal SIN / OTO B.194.220.330.6
+|
+
+|
+|
+|
+|18
+|TBD (Modem Genexis DRG7000)
+|100
+
+|
+|
+|
+|17
+|Compteur Photovoltaique Local Elec
+|
+
+|
+|
+|
+|16
+|Local MCR B Centrale Lecture Neovac
+|
+
+|
+|
+|
+|15
+|Local Sprinkler Centrale d'alarme Sprinkler
+|
+
+|
+|
+|
+|14
+|Chaufferie Chaudière 1
+|
+
+|
+|
+|
+|13
+|Chaufferie Chaudière 2
+|
+
+|
+|
+|
+|12
+|Chaufferie Boitier de cascade
+|
+
+|
 |TBD
+|Modem Genexis DRG7000
 |TBD
+|SW3-005
+|100
+
+|
+|TBD
+|Modem Zyxel AX7501-B0
+|TBD
+|SW1-003
+|1000
+
+|Local Elec A(3C)
+|SW1-004
+|DGS-3130-30S
+|30
+|SW1-003
+|stack
+
+|
+|
+|
+|24
+|SW3-006
+|trunk
+
+|
+|
+|
+|1 - 23
+|Rooms Patch Panel A(3)
+|1100
+
+|
+|SW3-006
+|DGS-1210-16
+|20 (SFP)
+|SW1-004
+|trunk
+
+|Local Elec B(1)
+|SW1-001
+|DGS-3130-30S
+|28
+|SW1-003
+|stack
+
+|
+|
+|
+|1 - 23
+|Rooms Patch Panel B(1)
+|1100
+
+|
+|SW3-007
+|DGS-1210-16
+|20 (SFP)
+|SW1-001
+|trunk
 
 |===
