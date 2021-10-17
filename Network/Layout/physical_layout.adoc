@@ -88,6 +88,8 @@ The _primary_ technical room in building C is furthermore equipped with
 
 === Switch / Router / Modem Placement and Port Assignments
 
+image::port-links.svg[Ports And Links]
+
 |===
 |Location |Inventory Code |Type |Ports |Link |VLAN ID
 
