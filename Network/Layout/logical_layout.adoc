@@ -33,7 +33,7 @@ Derived from our physical network layout and the need to effectively separate mo
 |uplink to modem with 8 static public IPs { IP~P0~ .. IP~P7~ } for technical monitoring
 
 |200
-|masquerading NAT + DHCP router - public port with fixed IP~P0~
+|masquerading NAT + DHCP router - public port with static IP~P0~
 
 |4__nn__
 |technical devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router
@@ -46,6 +46,70 @@ Derived from our physical network layout and the need to effectively separate mo
 
 |1100
 |all rooms eligible for community access / isolated of private VLAN
+
+|===
+
+=== Public (static) IPs and VLAN IDs for technical monitoring
+
+|===
+|Device |IP |VLAN ID
+
+|Chaudière 1
+|IP~P1~
+|201
+
+|Chaudière 2
+|IP~P2~
+|202
+
+|Boitier de cascade
+|IP~P3~
+|203
+
+|Sprinkler
+|IP~P4~
+|204
+
+|===
+
+=== Private (dynamic) IP subnets and VLAN IDs for technical monitoring
+
+To isolate the DHCP-assigned monitoring devices, each gets its own address range in its own subnet. For simplicity and maximum compatibility, we use class-C subnets even though they only need a single address.
+
+|===
+|Device |IP subnet |VLAN ID
+
+|Neovac MCR C
+|192.168.10.0/24
+|410
+
+|Neovac MCR B
+|192.168.11.0/24
+|411
+
+|Neovac MCR A1
+|192.168.12.0/24
+|412
+
+|Neovac MCR A3
+|192.168.13.0/24
+|413
+
+|Photovoltaique Local Elec C
+|192.168.20.0/24
+|420
+
+|Photovoltaique Local Elec B
+|192.168.21.0/24
+|421
+
+|Photovoltaique Local SIN B
+|192.168.22.0/24
+|422
+
+|Photovoltaique Local Elec A
+|192.168.23.0/24
+|423
 
 |===
 
