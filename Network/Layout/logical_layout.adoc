@@ -74,7 +74,7 @@ Derived from our physical network layout and the need to effectively separate mo
 
 === Private (dynamic) IP subnets and VLAN IDs for technical monitoring
 
-To isolate the DHCP-assigned monitoring devices, each gets its own address range in its own subnet. For simplicity and maximum compatibility, we use class-C subnets even though they only need a single address.
+To isolate the DHCP-assigned monitoring devices, each gets its own address range in its own subnet. For simplicity and maximum compatibility, we use class-C subnets even though they only need a single address. The gateway has the `.1` address in each subnet. The range reserved for DHCP starts from `.128`.
 
 |===
 |Device |IP subnet |VLAN ID
