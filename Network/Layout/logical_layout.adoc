@@ -30,16 +30,13 @@ Derived from our physical network layout and the need to effectively separate mo
 |VLAN ID | Purpose
 
 |100
-|uplink to modem with 8 static public IPs { IP~P0~ .. IP~P7~ } for technical monitoring
-
-|200
-|masquerading NAT + DHCP router - public port with static IP~P0~
-
-|4__nn__
-|technical devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router
+|uplink to modem with 8 static public IPs { IP~P0~ .. IP~P7~ } for technical monitoring, also including masquerading NAT + DHCP router
 
 |20__n__
 |devices configured for public IP~P__n__~ with __n__ = { 1 .. 7 }
+
+|4__nn__
+|technical devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router
 
 |1000
 |uplink to modem for community uplink with dynamic IP / primary of private VLAN
