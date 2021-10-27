@@ -1015,11 +1015,11 @@
       <text x="318.3828" xml:space="preserve" y="586.7199" clip-path="url(#clipPath2)" font-family="'Tahoma'" stroke="none">4</text>
     </g>
     <g stroke-linecap="butt" transform="matrix(1,0,0,1,1640,51)" fill="rgb(153,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" stroke="rgb(153,204,0)" stroke-width="3" stroke-miterlimit="1.45">
-      <path d="M80.1582 596.9562 L80.1582 682.9945 L-46.5 682.9945 L-46.5 684.4945 L-46.5 761.6 L-43.5 761.6 L-43.5 685.9945 L83.1582 685.9945 L83.1582 684.4945 L83.1582 596.9562 Z" stroke="none" clip-path="url(#clipPath2)"/>
-      <path fill="none" d="M80.1582 596.9562 L80.1582 682.9945 L-46.5 682.9945 L-46.5 684.4945 L-46.5 761.6 L-43.5 761.6 L-43.5 685.9945 L83.1582 685.9945 L83.1582 684.4945 L83.1582 596.9562 Z" stroke-width="1" clip-path="url(#clipPath2)" stroke="black"/>
+      <path d="M140.1582 596.9562 L140.1582 682.9945 L-46.5 682.9945 L-46.5 684.4945 L-46.5 761.6 L-43.5 761.6 L-43.5 685.9945 L143.1582 685.9945 L143.1582 684.4945 L143.1582 596.9562 Z" stroke="none" clip-path="url(#clipPath2)"/>
+      <path fill="none" d="M140.1582 596.9562 L140.1582 682.9945 L-46.5 682.9945 L-46.5 684.4945 L-46.5 761.6 L-43.5 761.6 L-43.5 685.9945 L143.1582 685.9945 L143.1582 684.4945 L143.1582 596.9562 Z" stroke-width="1" clip-path="url(#clipPath2)" stroke="black"/>
     </g>
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="'Tahoma'" transform="matrix(1,0,0,1,1640,51)" stroke-linecap="butt">
-      <text x="37.8096" xml:space="preserve" y="652.6102" clip-path="url(#clipPath2)" stroke="none">trunk</text>
+      <text x="97.8096" xml:space="preserve" y="652.6102" clip-path="url(#clipPath2)" stroke="none">trunk</text>
     </g>
     <g fill="rgb(184,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1640,51)" stroke="rgb(184,235,235)">
       <rect x="-315" y="1063.1" clip-path="url(#clipPath2)" width="996.6582" rx="4" ry="4" height="104.5898" stroke="none"/>
