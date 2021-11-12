@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="windowskey"
+   version="1.1"
+   width="32"
+   height="32"
+   viewBox="0 0 32.000001 32"
+   sodipodi:docname="windows_key.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="3.2784041"
+     inkscape:cx="9.6083334"
+     inkscape:cy="28.214947"
+     inkscape:window-width="1280"
+     inkscape:window-height="1001"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="windowskey" />
+  <rect
+     id="canvas"
+     width="10"
+     height="11"
+     style="fill:none;stroke-width:0"
+     x="-0.05716702"
+     y="-0.66337401" />
+  <g
+     id="g26"
+     transform="matrix(3.0487457,0,0,3.0551843,-0.70865081,-0.99599008)">
+    <path
+       id="rbyll"
+       d="M 10.7,5.95 V 10.8 L 5.13,9.93 V 5.94 Z"
+       style="fill:#2f3032;stroke-width:0" />
+    <path
+       id="rtgrn"
+       d="M 5.13,1.13 10.7,0.326 V 5.1 H 5.13 Z"
+       style="fill:#2f3032;stroke-width:0" />
+    <path
+       id="lbblu"
+       d="M 4.39,5.91 V 9.86 L 0.264,9.29 v -3.4 z"
+       style="fill:#2f3032;stroke-width:0" />
+    <path
+       id="ltred"
+       d="M 0.261,1.77 4.39,1.2 V 5.15 H 0.263 Z"
+       style="fill:#2f3032;stroke-width:0" />
+  </g>
+</svg>

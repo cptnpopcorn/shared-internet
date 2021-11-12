@@ -1,0 +1,27 @@
+= Comment voir les interfaces réseau de son PC
+:icons: image
+:icontype: svg
+
+Ce manuel donne une aide pour consulter la configuration active des adresses IP utilisées par son PC.
+
+== Windows
+
+* Appuyez sur les clés icon:windows_key[role=th] et [.th]`R` simultanément.
+* Entrez [.th]`cmd` puis appuyez sur icon:enter_key[role=th]
+* Une fenêtre s'ouvre, qui attend la saisie d'une commande
+* Entrez [.th]`ipconfig /all | clip` et icon:enter_key[role=th]
+* Vous pouvez maintenant coller le résultat dans un texte (mail, document txt..)
+
+== MAC OS
+
+* Appuyez sur les clés icon:mac_command_key[role=th] et [.th]`espace`
+* Entrez [.th]`terminal` et icon:enter_key[role=th]
+* Entrez [.th]`ifconfig -v | pbcopy` et icon:enter_key[role=th]
+* Vous pouvez maintenant coller le résultat dans un texte (mail, document txt..)
+
+== Linux
+
+* Appuyez sur les clés [.th]`Ctrl` + [.th]`Alt` + [.th]`T` ou ouvrez autrement un terminal
+* Entrez [.th]`ifconfig -a | xclip -selection c`
+* Vous pouvez maintenant coller le résultat dans un texte (mail, document txt..)
+* Alternativement, vous pouvez diriger le résultat dans un fichier, par exemple [.th]`ifconfig -a >network.config.txt`
