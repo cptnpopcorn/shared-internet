@@ -123,7 +123,13 @@ The set of switches connected in that way is referred to as a stack. From the ad
 |Local Elec C (Tines 5C)
 |1
 |12
-|4,7
+|4,2
+
+|SW1-008
+|Local Elec C (Tines 5C)
+|2
+|9
+|1,7
 
 |SW1-004
 |Local Elec A (Tines 3C)

@@ -25,7 +25,7 @@
       <rect x="-1652.0664" y="-331.4984" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="1079.6771" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1702,879)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="-634.4772" xml:space="preserve" y="-314.4911" clip-path="url(#clipPath2)" stroke="none">SW1-004</text>
+      <text x="-716.4352" xml:space="preserve" y="-314.4911" clip-path="url(#clipPath2)" stroke="none">SW1-004 STACK ID 4</text>
       <rect x="-1652.0664" y="-331.4984" clip-path="url(#clipPath2)" fill="none" width="1079.6771" stroke-dasharray="6,2" rx="4" ry="4" height="142.1055"/>
     </g>
     <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1702,879)" stroke="rgb(255,204,0)">
@@ -1527,7 +1527,7 @@
       <rect x="-315" y="-106.1859" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="1082.3825" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1702,879)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="705.2946" xml:space="preserve" y="-89.1786" clip-path="url(#clipPath2)" stroke="none">SW1-003</text>
+      <text x="623.3366" xml:space="preserve" y="-89.1786" clip-path="url(#clipPath2)" stroke="none">SW1-003 STACK ID 1</text>
       <rect x="-315" y="-106.1859" clip-path="url(#clipPath2)" fill="none" width="1082.3825" stroke-dasharray="6,2" rx="4" ry="4" height="142.1055"/>
     </g>
     <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1702,879)" stroke="rgb(255,204,0)">
@@ -2111,7 +2111,7 @@
       <rect x="-315" y="-331.4984" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="1082.3825" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1702,879)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="705.2946" xml:space="preserve" y="-314.4911" clip-path="url(#clipPath2)" stroke="none">SW1-008</text>
+      <text x="623.3366" xml:space="preserve" y="-314.4911" clip-path="url(#clipPath2)" stroke="none">SW1-008 STACK ID 2</text>
       <rect x="-315" y="-331.4984" clip-path="url(#clipPath2)" fill="none" width="1082.3825" stroke-dasharray="6,2" rx="4" ry="4" height="142.1055"/>
     </g>
     <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1702,879)" stroke="rgb(255,204,0)">
@@ -3488,7 +3488,7 @@
       <rect x="1110.2476" y="-331.4984" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="1082.3825" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1702,879)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="2130.5422" xml:space="preserve" y="-314.4911" clip-path="url(#clipPath2)" stroke="none">SW1-001</text>
+      <text x="2048.5842" xml:space="preserve" y="-314.4911" clip-path="url(#clipPath2)" stroke="none">SW1-001 STACK ID 7</text>
       <rect x="1110.2476" y="-331.4984" clip-path="url(#clipPath2)" fill="none" width="1082.3825" stroke-dasharray="6,2" rx="4" ry="4" height="142.1055"/>
     </g>
     <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1702,879)" stroke="rgb(255,204,0)">
