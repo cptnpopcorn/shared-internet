@@ -18,9 +18,10 @@ Before interconnecting L3 Switches physically and enabling Stacking on all of th
 
 * Connect to every Switch via MGMT port.
 * Go to menu Management > Stacking > Physical Stacking
-* On the *Stack ID* chapter on the Current Unit ID drop down box check that you selected a current unit ID (default for new device is 1) and on the New Box ID select a required Unit ID using footnote[1]. And tick Apply.
-image::sites.svg[opts=inline]
 
+image::Physical Stacking window.svg[opts=inline]
+
+* On the *Stack ID* chapter on the Current Unit ID drop down box check that you selected a current unit ID (default for new device is 1) and on the New Box ID select a required Unit ID using footnote[1]. And tick Apply.
 * On the *Priority* chapter on the Current Unit ID drop down box check that you selected a current unit ID and on the New Priority select a required Priority using footnote[1]. And tick Apply.
 Note: a highest priority has a higher priority number. E.g. Master has 12, others < 12.
 * On the *Physical Stacking* chapter make a Stacking Mode = Enabled. And tick Apply.
@@ -32,6 +33,7 @@ Note: a highest priority has a higher priority number. E.g. Master has 12, other
 * Go to menu Management > Stacking > Stacking Bandwidth
 * Select 2-port-SFP+ . And tick Apply.
 
+image::Stacking Bandwidth window.svg[opts=inline]
 
 
 *Step 3. Reboot Switch(es).*
