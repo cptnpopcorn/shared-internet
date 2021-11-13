@@ -1,1 +1,68 @@
+:imagesdir: img
+= Switch Setup
 
+This document step by step describes how a current network setup was done on the L3 Layer Switches.
+Use a logical_layout.adoc and a physical_layout.adoc documents to understand and reference some setup objects.
+
+== Stacking setup
+
+On the logical_layout.adoc file / Stacking chapter you will find a table with a L3 Switch location, Stacking ID and Priority information.
+On the physical_layout.adoc you will find which port(s) is used to interconnect L3 Switches for stacking.
+Reference to footnote:[reference to DGS-3130 Series Layer 3 Stackable Managed Switch Web UI Reference Guide] to understand what roles play Master, Backup Master and Slaves.
+
+To be able to administer all L3 Switches, you need to use a MGMT (Management) port on the Master Switch. Use 192.168.0.1 on the Internet Browser to reach L3 Switch GUI Web page.
+
+Before interconnecting L3 Switches physically and enabling Stacking on all of them, it is better to connect to each L3 Switch (later as Switch) via MGMT port and pre-setup Stacking ID and Priority in advance using footnote[1]. That will help to avoid any auto ID and Master assignements.
+
+*Step 1. Setup Stack ID, Priority and enable stacking.*
+
+* Connect to every Switch via MGMT port.
+* Go to menu Management > Stacking > Physical Stacking
+* On the *Stack ID* chapter on the Current Unit ID drop down box check that you selected a current unit ID (default for new device is 1) and on the New Box ID select a required Unit ID using footnote[1]. And tick Apply.
+image::sites.svg[opts=inline]
+
+* On the *Priority* chapter on the Current Unit ID drop down box check that you selected a current unit ID and on the New Priority select a required Priority using footnote[1]. And tick Apply.
+Note: a highest priority has a higher priority number. E.g. Master has 12, others < 12.
+* On the *Physical Stacking* chapter make a Stacking Mode = Enabled. And tick Apply.
+
+
+
+*Step 2. Setup a Stacking Bandwidth.*
+
+* Go to menu Management > Stacking > Stacking Bandwidth
+* Select 2-port-SFP+ . And tick Apply.
+
+
+
+*Step 3. Reboot Switch(es).*
+
+* Go to Tools > Reboot System menu on top.
+* Choose "Do you want to save settings" = Yes.
+* Tick Reboot.
+
+*Step 4. Check a Stacking setup.*
+
+* Connect to Master Switch via MGMT port.
+* Go to menu Management > Stacking > Physical Stacking.
+* Check the table.
+
+
+
+
+== Setup VLANs
+
+
+
+== Setup ports
+
+Hosts + Trunk for Tech Codha.
+
+
+
+== Setup Private VLAN
+
+
+
+== Secure VLANs
+
+Remove Shared VLANs from the Trunk (tech Codha) port.
