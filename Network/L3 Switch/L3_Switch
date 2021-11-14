@@ -30,8 +30,8 @@ Note: a highest priority has a higher priority number. E.g. Master has 12, other
 
 *Step 2. Setup a Stacking Bandwidth.*
 
-* Go to menu Management > Stacking > Stacking Bandwidth
-* Select 2-port-SFP+ . And tick Apply.
+* Go to menu *Management > Stacking > Stacking Bandwidth*.
+* Select *2-port-SFP+ *. And tick Apply.
 
 image::Stacking Bandwidth window.svg[opts=inline]
 
@@ -45,26 +45,101 @@ image::Stacking Bandwidth window.svg[opts=inline]
 *Step 4. Check a Stacking setup.*
 
 * Connect to Master Switch via MGMT port.
-* Go to menu Management > Stacking > Physical Stacking.
+* Go to menu *Management > Stacking > Physical Stacking*.
 * Check the table.
-
+<insert a real screenshot>
+* Check if Master Switch led shows a blinking 1 and H. 'H' means this is a Primary Master.
+'h' means an Backup Master. Slaves do not blink and show only stacking number.
 
 
 
 == Setup VLANs
 
+Our goal is to separate a private apartments subnetworks and other technical subnetworks.
+Refer to the logical_layout.adoc file /  VLAN IDs chapter
+
+* Go to menu *L2 Features > VLAN > 802.1Q VLAN*.
+* On the 802.1Q VLAN chapter enter VLAN VID as *1000* and tick Apply.
+VID 1000 is used as Primary VLAN for Shared Internet on the Switch port to ISP modem side.
+* On the 802.1Q VLAN chapter enter VLAN VID as *1100* and tick Apply.
+VID 1100 is used as Isolated VLAN for Shared Internet for all host ports (apartments) side as Private VLAN later.
+* Go to vlans table, take e.g. VID 1000, tick on Edit and update the name of that VLAN (VID).
+
+<insert 802.1Q VLAN picture>
 
 
-== Setup ports
+== Setup Ports
 
 Hosts + Trunk for Tech Codha.
 
+*Step1.*
+
+Now we need to change a VLAN type of the physical ports configuring a VLAN Interface.
+
+* Connect to Master Switch via MGMT port.
+* Go to menu *L2 Features > VLAN > VLAN Interface*.
+* Choose a Unit 1 on drop-down box.
+* On the Unit 1 Settings table choose port 1 (eth1/0/1) and tick Edit.
+* Choose a *VLAN Mode* = *Host*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
+* Enable a Clone box. And choose From Port: eth1/0/1 and To Port: eth1/0/23. That will help to apply the same Host setup on other ports automatically.
+* Tick apply.
+* Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface. Do the same steps as above.
+
+<insert Host picture>
+
+*Step2.*
+
+Do the same exercise setting up a Trunk ports.
+
+* Connect to Master Switch via MGMT port.
+* Go to menu *L2 Features > VLAN > VLAN Interface*.
+* Choose a Unit 1 on drop-down box.
+* On the Unit 1 Settings table choose port 24 (eth1/0/24) (this is dedicated for Tech Codha setup) and tick Edit.
+* Choose a *VLAN Mode* = *Trunk*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
+* Tick apply.
+* Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface.
+
+<insert Trunk picture>
+
+*Step3.*
+
+Do the same exercise setting up a Host port for ISP modem side/port connection.
+
+* Connect to Master Switch via MGMT port.
+* Go to menu *L2 Features > VLAN > VLAN Interface*.
+* Choose a Unit 1 on drop-down box.
+* On the Unit 1 Settings table choose port X (eth1/0/X) and tick Edit.
+* Choose a *VLAN Mode* = *X*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
+* Tick apply.
 
 
-== Setup Private VLAN
+== Setup a Private VLAN
+
+Now we need to setup a Private VLAN (PVLAN).
+
+* Connect to Master Switch via MGMT port.
+* Go to menu *L2 Features > VLAN > Private VLAN*.
+* On the Private VLAN chapter select VID List = 1000, State = Enabled, Type = Primary. Tick Apply.
+* On the Private VLAN chapter select VID List = 1100, State = Enabled, Type = Isolated. Tick Apply.
+* On the Private VLAN Association chapter select VID = 1000 (this is an uplink to modem VLAN), Action = Add, Secondary VID List = 1100 (this is a flats VLAN). Tick Apply.
+* On the Private VLAN Host Association chapter use From Port: eth1/0/1, To Port: eth1/0/23, Primary VID = 1000, Secondary VID = 1100. Tick Apply.
+
+
+<insert a Private VLAN picture(s)>
 
 
 
 == Secure VLANs
 
 Remove Shared VLANs from the Trunk (tech Codha) port.
+To securely split a Shared Internet and a Tech Codha subnetworks we need to restrict any opposite VLAN visibility.
+
+* Connect to Master Switch via MGMT port.
+* Go to menu L2 Features > VLAN > VLAN Interface.
+* Choose a Unit 1 on drop-down box.
+* On the Unit 1 Settings table choose port 24 (eth1/0/24) (this is dedicated for Tech Codha setup) and tick Edit.
+* As it was setup above, leave a *VLAN Mode* = *Trunk*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
+* Choose a VLAN (VID), which we need to remove. In our case choose *VID = 1000*, Action = *Remove*
+* Tick apply.
+* Do the same for VID = 1100.
+* Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface.
