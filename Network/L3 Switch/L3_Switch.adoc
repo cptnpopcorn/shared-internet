@@ -1,5 +1,5 @@
-:imagesdir: img
 = Switch Setup
+:imagesdir: img
 
 This document step by step describes how a current network setup was done on the L3 Layer Switches.
 Use a logical_layout.adoc and a physical_layout.adoc documents to understand and reference some setup objects.
@@ -19,7 +19,7 @@ Before interconnecting L3 Switches physically and enabling Stacking on all of th
 * Connect to every Switch via MGMT port.
 * Go to menu Management > Stacking > Physical Stacking
 
-image::Physical Stacking window.svg[opts=inline]
+image::Physical_Stacking_window.svg[opts=inline,width=800]
 
 * On the *Stack ID* chapter on the Current Unit ID drop down box check that you selected a current unit ID (default for new device is 1) and on the New Box ID select a required Unit ID using footnote[1]. And tick Apply.
 * On the *Priority* chapter on the Current Unit ID drop down box check that you selected a current unit ID and on the New Priority select a required Priority using footnote[1]. And tick Apply.
@@ -29,9 +29,9 @@ Note: a highest priority has a higher priority number. E.g. Master has 12, other
 *Step 2. Setup a Stacking Bandwidth.*
 
 * Go to menu *Management > Stacking > Stacking Bandwidth*.
-* Select *2-port-SFP+ *. And tick Apply.
+* Select *2-port-SFP+*. And tick Apply.
 
-image::Stacking Bandwidth window.svg[opts=inline]
+image::Stacking_Bandwidth_window.svg[opts=inline,width=800]
 
 *Step 3. Reboot Switch(es).*
 
@@ -60,7 +60,7 @@ VID 1000 is used as Primary VLAN for Shared Internet on the Switch port to ISP m
 VID 1100 is used as Isolated VLAN for Shared Internet for all host ports (apartments) side as Private VLAN later.
 * Go to vlans table, take e.g. VID 1000, tick on Edit and update the name of that VLAN (VID).
 
-<insert 802.1Q VLAN picture>
+image::802.1Q_VLAN_window.svg[opts=inline,width=800]
 
 == Setup Ports
 
