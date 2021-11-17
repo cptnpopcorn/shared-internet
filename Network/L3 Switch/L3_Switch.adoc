@@ -26,15 +26,12 @@ image::Physical Stacking window.svg[opts=inline]
 Note: a highest priority has a higher priority number. E.g. Master has 12, others < 12.
 * On the *Physical Stacking* chapter make a Stacking Mode = Enabled. And tick Apply.
 
-
-
 *Step 2. Setup a Stacking Bandwidth.*
 
 * Go to menu *Management > Stacking > Stacking Bandwidth*.
 * Select *2-port-SFP+ *. And tick Apply.
 
 image::Stacking Bandwidth window.svg[opts=inline]
-
 
 *Step 3. Reboot Switch(es).*
 
@@ -51,8 +48,6 @@ image::Stacking Bandwidth window.svg[opts=inline]
 * Check if Master Switch led shows a blinking 1 and H. 'H' means this is a Primary Master.
 'h' means an Backup Master. Slaves do not blink and show only stacking number.
 
-
-
 == Setup VLANs
 
 Our goal is to separate a private apartments subnetworks and other technical subnetworks.
@@ -66,7 +61,6 @@ VID 1100 is used as Isolated VLAN for Shared Internet for all host ports (apartm
 * Go to vlans table, take e.g. VID 1000, tick on Edit and update the name of that VLAN (VID).
 
 <insert 802.1Q VLAN picture>
-
 
 == Setup Ports
 
@@ -108,10 +102,9 @@ Do the same exercise setting up a Host port for ISP modem side/port connection.
 * Connect to Master Switch via MGMT port.
 * Go to menu *L2 Features > VLAN > VLAN Interface*.
 * Choose a Unit 1 on drop-down box.
-* On the Unit 1 Settings table choose port X (eth1/0/X) and tick Edit.
-* Choose a *VLAN Mode* = *X*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
+* On the Unit 1 Settings table choose port 26 (eth1/0/26) and tick Edit.
+* Choose a *VLAN Mode* = *Promiscuous*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
 * Tick apply.
-
 
 == Setup a Private VLAN
 
@@ -123,11 +116,9 @@ Now we need to setup a Private VLAN (PVLAN).
 * On the Private VLAN chapter select VID List = 1100, State = Enabled, Type = Isolated. Tick Apply.
 * On the Private VLAN Association chapter select VID = 1000 (this is an uplink to modem VLAN), Action = Add, Secondary VID List = 1100 (this is a flats VLAN). Tick Apply.
 * On the Private VLAN Host Association chapter use From Port: eth1/0/1, To Port: eth1/0/23, Primary VID = 1000, Secondary VID = 1100. Tick Apply.
-
+* On the Private VLAN Mapping chapter use From Port: eth1/0/26, To Port: eth1/0/26, Primary VID = 1000, Action = Add, Secondary VID List = 1100. Tick Apply.
 
 <insert a Private VLAN picture(s)>
-
-
 
 == Secure VLANs
 
@@ -135,7 +126,7 @@ Remove Shared VLANs from the Trunk (tech Codha) port.
 To securely split a Shared Internet and a Tech Codha subnetworks we need to restrict any opposite VLAN visibility.
 
 * Connect to Master Switch via MGMT port.
-* Go to menu L2 Features > VLAN > VLAN Interface.
+* Go to menu *L2 Features > VLAN > VLAN Interface*.
 * Choose a Unit 1 on drop-down box.
 * On the Unit 1 Settings table choose port 24 (eth1/0/24) (this is dedicated for Tech Codha setup) and tick Edit.
 * As it was setup above, leave a *VLAN Mode* = *Trunk*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
@@ -143,3 +134,23 @@ To securely split a Shared Internet and a Tech Codha subnetworks we need to rest
 * Tick apply.
 * Do the same for VID = 1100.
 * Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface.
+
+== Setup DHCP Snooping
+
+Snooping will sniff DHCP communication to track which MAC gets what IP on what port.
+
+* Connect to Master Switch via MGMT port.
+* Go to menu *Security > IMPB > IPv4 > DHCPv4 Snooping > DHCP Snooping Global Settings*
+* Set "DHCP Snooping" to "Enabled". Tick Apply.
+* Go to menu *Security > IMPB > IPv4 > DHCPv4 Snooping > DHCP Snooping VLAN Settings*
+* Set *VID List* = *1000* and *State* = *Enabled*. Tick Apply.
+* Go to menu *Security > IMPB > IPv4 > DHCPv4 Snooping > DHCP Snooping Port Settings*
+* Set *From Port* = *eth1/0/26*
+* Set *To Port* = *eth1/0/26*
+* Set *Trusted* = *Yes*. Tick Apply.
+* Go to menu *Security > IMPB > IPv4 > IP Source Guard > IPv4 Source Guard Port Settings*
+* Set *From Port* = *eth1/01*, *To Port* = *eth1/0/23*, *State* = *Enabled*, *Validation* = *IP-MAC*. Tick Apply.
+* Repeat the previous step for the other units
+** *eth2/0/1* - *eth2/0/24*
+** *eth4/0/1* - *eth4/0/23*
+** *eth7/0/1* - *eth7/0/23*
