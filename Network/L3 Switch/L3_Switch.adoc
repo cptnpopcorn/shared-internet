@@ -156,3 +156,17 @@ Snooping will sniff DHCP communication to track which MAC gets what IP on what p
 ** *eth7/0/1* - *eth7/0/23*
 
 image::DHCP_Snooping_Binding_real_tracking_example.svg[opts=inline,width=800]
+
+== Protect router from direct IP connections (configuration interface, UPNP..)
+
+* Connect to Master Switch via Console port (serial cable)
+* Enter the follow series of commands, substitute w.x.y.z by internal router IP
+----
+enable 15
+configure terminal
+ip access-list nomodem
+deny any host w.x.y.z
+exit
+interface ethernet 1/0/26
+ip access-group nomodem out
+----
