@@ -79,7 +79,7 @@ Now we need to change a VLAN type of the physical ports configuring a VLAN Inter
 * Tick apply.
 * Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface. Do the same steps as above.
 
-<insert Host picture>
+image::Configure_VLAN_Interface_Host_window[opts=inline,width=800]
 
 *Step2.*
 
@@ -93,7 +93,7 @@ Do the same exercise setting up a Trunk ports.
 * Tick apply.
 * Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface.
 
-<insert Trunk picture>
+image::Configure_VLAN_Interface_Trunk_window[opts=inline,width=800]
 
 *Step3.*
 
@@ -118,7 +118,7 @@ Now we need to setup a Private VLAN (PVLAN).
 * On the Private VLAN Host Association chapter use From Port: eth1/0/1, To Port: eth1/0/23, Primary VID = 1000, Secondary VID = 1100. Tick Apply.
 * On the Private VLAN Mapping chapter use From Port: eth1/0/26, To Port: eth1/0/26, Primary VID = 1000, Action = Add, Secondary VID List = 1100. Tick Apply.
 
-<insert a Private VLAN picture(s)>
+image::Private_VLAN_window[opts=inline,width=800]
 
 == Secure VLANs
 
@@ -154,3 +154,5 @@ Snooping will sniff DHCP communication to track which MAC gets what IP on what p
 ** *eth2/0/1* - *eth2/0/24*
 ** *eth4/0/1* - *eth4/0/23*
 ** *eth7/0/1* - *eth7/0/23*
+
+image::DHCP_Snooping_Binding_real_tracking_example[opts=inline,width=800]
