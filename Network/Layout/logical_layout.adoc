@@ -141,6 +141,6 @@ The set of switches connected in that way is referred to as a stack. From the ad
 |Local Elec B (Tines 1)
 |7
 |6
-|1
+|2
 
 |===
