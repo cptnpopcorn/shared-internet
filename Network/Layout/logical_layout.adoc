@@ -53,15 +53,13 @@ Derived from our physical network layout and the need to effectively separate mo
 
 |Chaudière 1
 |IP~P1~
-|201
+.3+|201
 
 |Chaudière 2
 |IP~P2~
-|202
 
 |Boitier de cascade
 |IP~P3~
-|203
 
 |Sprinkler
 |IP~P4~
@@ -107,6 +105,10 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |Photovoltaique Local Elec A
 |192.168.23.0/24
 |423
+
+|Temporary / internal use
+|192.168.31.0./24
+|430
 
 |===
 
