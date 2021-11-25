@@ -61,10 +61,6 @@ Derived from our physical network layout and the need to effectively separate mo
 |Boitier de cascade
 |IP~P3~
 
-|Sprinkler
-|IP~P4~
-|204
-
 |===
 
 === Private (dynamic) IP subnets and VLAN IDs for technical monitoring
@@ -107,8 +103,12 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |423
 
 |Temporary / internal use
-|192.168.31.0./24
+|192.168.30.0./24
 |430
+
+|Sprinkler
+|192.168.40.0/24
+|440
 
 |===
 
