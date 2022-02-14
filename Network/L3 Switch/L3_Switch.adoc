@@ -1,45 +1,45 @@
 = Switch Setup
 :imagesdir: img
 
-This document step by step describes how a current network setup was done on the L3 Layer Switches.
+This document step by step describes how the current network setup was done on the L3 Layer Switches.
 Use a logical_layout.adoc and a physical_layout.adoc documents to understand and reference some setup objects.
 
 == Stacking setup
 
-On the logical_layout.adoc file / Stacking chapter you will find a table with a L3 Switch location, Stacking ID and Priority information.
-On the physical_layout.adoc you will find which port(s) is used to interconnect L3 Switches for stacking.
-Reference to footnote:[reference to DGS-3130 Series Layer 3 Stackable Managed Switch Web UI Reference Guide] to understand what roles play Master, Backup Master and Slaves.
+On the xref:./Layout/logical_layout.adoc#stacking[Stacking chapter of the logical Layout] you will find a table with the L3 Switch location, Stacking ID and priority information.
+On the xref:./Layout/physical_layout.adoc[Physcial Layout] you will find which port(s) is used to interconnect L3 Switches for stacking.
+Reference to the reference guidefootnote:refguide[DGS-3130 Series Layer 3 Stackable Managed Switch Web UI Reference Guide] to understand what roles play Master, Backup Master and Slaves.
 
-To be able to administer all L3 Switches, you need to use a MGMT (Management) port on the Master Switch. Use 192.168.0.1 on the Internet Browser to reach L3 Switch GUI Web page.
+To be able to administer all L3 Switches, you need to use the MGMT (Management) port on the Master Switch. Use `192.168.0.1` on the Internet Browser to reach L3 Switch GUI Web page.
 
-Before interconnecting L3 Switches physically and enabling Stacking on all of them, it is better to connect to each L3 Switch (later as Switch) via MGMT port and pre-setup Stacking ID and Priority in advance using footnote[1]. That will help to avoid any auto ID and Master assignements.
+Before interconnecting L3 Switches physically and enabling Stacking on all of them, it is better to connect to each L3 Switch (later as Switch) via the MGMT port and pre-setup the stacking ID and priority in advance using the reference guidefootnote:refguide[]. That will help to avoid any auto ID and Master assignments.
 
-*Step 1. Setup Stack ID, Priority and enable stacking.*
+=== Setup Stack ID, Priority and enable stacking
 
 * Connect to every Switch via MGMT port.
 * Go to menu Management > Stacking > Physical Stacking
 
-image::Physical_Stacking_window.svg[opts=inline,width=800]
+image::Physical_Stacking_window.png[opts=inline]
 
-* On the *Stack ID* chapter on the Current Unit ID drop down box check that you selected a current unit ID (default for new device is 1) and on the New Box ID select a required Unit ID using footnote[1]. And tick Apply.
-* On the *Priority* chapter on the Current Unit ID drop down box check that you selected a current unit ID and on the New Priority select a required Priority using footnote[1]. And tick Apply.
-Note: a highest priority has a higher priority number. E.g. Master has 12, others < 12.
-* On the *Physical Stacking* chapter make a Stacking Mode = Enabled. And tick Apply.
+* On the *Stack ID* chapter on the Current Unit ID drop down box check that you selected a current unit ID (default for new device is 1) and on the New Box ID select a required Unit ID using the reference guidefootnote:refguide[]. Tick Apply.
+* On the *Priority* chapter on the Current Unit ID drop down box check that you selected the current unit ID and on the New Priority select a required Priority using footnote[1]. Tick Apply.
+Note: the highest priority has a higher priority number. E.g. Master has 12, others < 12.
+* On the *Physical Stacking* chapter set Stacking Mode = Enabled. Tick Apply.
 
-*Step 2. Setup a Stacking Bandwidth.*
+=== Set up the Stacking Bandwidth
 
 * Go to menu *Management > Stacking > Stacking Bandwidth*.
-* Select *2-port-SFP+*. And tick Apply.
+* Select *2-port-SFP+*. Tick Apply.
 
-image::Stacking_Bandwidth_window.svg[opts=inline,width=800]
+image::Stacking_Bandwidth_window.png[opts=inline]
 
-*Step 3. Reboot Switch(es).*
+=== Reboot Switch(es)
 
 * Go to Tools > Reboot System menu on top.
 * Choose "Do you want to save settings" = Yes.
 * Tick Reboot.
 
-*Step 4. Check a Stacking setup.*
+=== Check the Stacking setup
 
 * Connect to Master Switch via MGMT port.
 * Go to menu *Management > Stacking > Physical Stacking*.
@@ -50,60 +50,60 @@ image::Stacking_Bandwidth_window.svg[opts=inline,width=800]
 
 == Setup VLANs
 
-Our goal is to separate a private apartments subnetworks and other technical subnetworks.
-Refer to the logical_layout.adoc file /  VLAN IDs chapter
+Our goal is to separate the private apartments subnetworks and other technical subnetworks.
+Refer to the xref:./Layout/logical_layout.adoc#vlan_ids[VLAN IDs chapter of the logical layout].
 
 * Go to menu *L2 Features > VLAN > 802.1Q VLAN*.
-* On the 802.1Q VLAN chapter enter VLAN VID as *1000* and tick Apply.
+* On the 802.1Q VLAN chapter enter VLAN VID *1000* and tick Apply.
 VID 1000 is used as Primary VLAN for Shared Internet on the Switch port to ISP modem side.
-* On the 802.1Q VLAN chapter enter VLAN VID as *1100* and tick Apply.
+* On the 802.1Q VLAN chapter enter VLAN VID *1100* and tick Apply.
 VID 1100 is used as Isolated VLAN for Shared Internet for all host ports (apartments) side as Private VLAN later.
-* Go to vlans table, take e.g. VID 1000, tick on Edit and update the name of that VLAN (VID).
+* Go to the VLANs table, take e.g. VID 1000, tick on Edit and update the name of that VLAN (VID).
 
-image::802.1Q_VLAN_window.svg[opts=inline,width=800]
+image::802.1Q_VLAN_window.png[opts=inline]
 
 == Setup Ports
 
-Hosts + Trunk for Tech Codha.
+_TBD: Hosts + Trunk for Tech Codha_
 
-*Step1.*
+=== Host Ports
 
-Now we need to change a VLAN type of the physical ports configuring a VLAN Interface.
+We need to change the VLAN type of the physical ports before configuring a VLAN Interface.
 
 * Connect to Master Switch via MGMT port.
 * Go to menu *L2 Features > VLAN > VLAN Interface*.
-* Choose a Unit 1 on drop-down box.
+* Choose Unit 1 on drop-down box.
 * On the Unit 1 Settings table choose port 1 (eth1/0/1) and tick Edit.
-* Choose a *VLAN Mode* = *Host*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
-* Enable a Clone box. And choose From Port: eth1/0/1 and To Port: eth1/0/23. That will help to apply the same Host setup on other ports automatically.
+* Choose *VLAN Mode* = *Host*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
+* Enable the Clone box. And choose From Port: eth1/0/1 and To Port: eth1/0/23. That will help to apply the same Host setup on other ports automatically.
 * Tick apply.
-* Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface. Do the same steps as above.
+* Do the same for other Switches, selecting the specific Unit at the previous page on menu *L2 Features > VLAN > VLAN Interface*. Do the same steps as above.
 
-image::Configure_VLAN_Interface_Host_window.svg[opts=inline,width=800]
+image::Configure_VLAN_Interface_Host_window.png[opts=inline]
 
-*Step2.*
+=== Trunk Ports
 
-Do the same exercise setting up a Trunk ports.
+Do the same exercise to set up a trunk port for switches outside the stack.
 
-* Connect to Master Switch via MGMT port.
+* Connect to the Master Switch via the MGMT port.
 * Go to menu *L2 Features > VLAN > VLAN Interface*.
-* Choose a Unit 1 on drop-down box.
+* Choose Unit 1 on drop-down box.
 * On the Unit 1 Settings table choose port 24 (eth1/0/24) (this is dedicated for Tech Codha setup) and tick Edit.
-* Choose a *VLAN Mode* = *Trunk*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
+* Choose a *VLAN Mode* = *Trunk*. Leave *Acceptable Frame* = *Admit All*. Leave *Ingress Checking* = *Enabled*.
 * Tick apply.
-* Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface.
+* Do the same for other Switches, selecting the specific Unit at the previous page on menu *L2 Features > VLAN > VLAN Interface.*
 
-image::Configure_VLAN_Interface_Trunk_window.svg[opts=inline,width=800]
+image::Configure_VLAN_Interface_Trunk_window.png[opts=inline]
 
-*Step3.*
+=== ISP modem port
 
-Do the same exercise setting up a Host port for ISP modem side/port connection.
+Do the same exercise to set up a Host port for the ISP modem side/port connection.
 
 * Connect to Master Switch via MGMT port.
 * Go to menu *L2 Features > VLAN > VLAN Interface*.
 * Choose a Unit 1 on drop-down box.
 * On the Unit 1 Settings table choose port 26 (eth1/0/26) and tick Edit.
-* Choose a *VLAN Mode* = *Promiscuous*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
+* Choose a *VLAN Mode* = *Promiscuous*. Leave *Acceptable Frame* = *Admit All.* Leave Ingress Checking = Enabled.
 * Tick apply.
 
 == Setup a Private VLAN
@@ -112,36 +112,36 @@ Now we need to setup a Private VLAN (PVLAN).
 
 * Connect to Master Switch via MGMT port.
 * Go to menu *L2 Features > VLAN > Private VLAN*.
-* On the Private VLAN chapter select VID List = 1000, State = Enabled, Type = Primary. Tick Apply.
-* On the Private VLAN chapter select VID List = 1100, State = Enabled, Type = Isolated. Tick Apply.
-* On the Private VLAN Association chapter select VID = 1000 (this is an uplink to modem VLAN), Action = Add, Secondary VID List = 1100 (this is a flats VLAN). Tick Apply.
-* On the Private VLAN Host Association chapter use From Port: eth1/0/1, To Port: eth1/0/23, Primary VID = 1000, Secondary VID = 1100. Tick Apply.
-* On the Private VLAN Mapping chapter use From Port: eth1/0/26, To Port: eth1/0/26, Primary VID = 1000, Action = Add, Secondary VID List = 1100. Tick Apply.
+* On the Private VLAN chapter select *VID List* = *1000*, *State* = *Enabled*, *Type* = *Primary.* Tick Apply.
+* On the Private VLAN chapter select *VID List* = *1100*, *State* = *Enabled*, *Type = Isolated*. Tick Apply.
+* On the Private VLAN Association chapter select *VID* = *1000* (this is the uplink to the modem VLAN), *Action* = *Add*, Secondary VID List = 1100 (this is a flats VLAN). Tick Apply.
+* On the Private VLAN Host Association chapter use From Port: eth1/0/1, To Port: eth1/0/23, *Primary VID* = *1000*, *Secondary VID* = *1100*. Tick Apply.
+* On the Private VLAN Mapping chapter use From Port: eth1/0/26, To Port: eth1/0/26, *Primary VID *= *1000*, *Action* = *Add*, *Secondary VID List* = *1100*. Tick Apply.
 
-image::Private_VLAN_window.svg[opts=inline,width=800]
+image::Private_VLAN_window.png[opts=inline]
 
 == Secure VLANs
 
 Remove Shared VLANs from the Trunk (tech Codha) port.
-To securely split a Shared Internet and a Tech Codha subnetworks we need to restrict any opposite VLAN visibility.
+To split the Shared Internet and a Tech Codha subnetworks we need to restrict mutual VLAN visibility.
 
-* Connect to Master Switch via MGMT port.
-* Go to menu *L2 Features > VLAN > VLAN Interface*.
-* Choose a Unit 1 on drop-down box.
+* Connect to the Master Switch via MGMT port.
+* Go to the menu *L2 Features > VLAN > VLAN Interface*.
+* Choose Unit 1 on drop-down box.
 * On the Unit 1 Settings table choose port 24 (eth1/0/24) (this is dedicated for Tech Codha setup) and tick Edit.
-* As it was setup above, leave a *VLAN Mode* = *Trunk*. Leave an Acceptable Frame = Admit All. Leave Ingress Checking = Enabled.
-* Choose a VLAN (VID), which we need to remove. In our case choose *VID = 1000*, Action = *Remove*
+* As it was setup above, leave a *VLAN Mode* = *Trunk*. Leave *Acceptable Frame* = *Admit All*. Leave *Ingress Checking* = *Enabled*.
+* Choose the VLAN (VID) which we need to remove. In our case choose *VID* = *1000*, *Action* = *Remove*
 * Tick apply.
-* Do the same for VID = 1100.
-* Do the same for other Switches, selecting an exact Unit at the previous page on menu L2 Features > VLAN > VLAN Interface.
+* Do the same for *VID* = *1100*.
+* Do the same for other Switches, selecting the specific unit at the previous page on menu *L2 Features > VLAN > VLAN Interface*.
 
 == Setup DHCP Snooping
 
 Snooping will sniff DHCP communication to track which MAC gets what IP on what port.
 
-* Connect to Master Switch via MGMT port.
+* Connect to the Master Switch via MGMT port.
 * Go to menu *Security > IMPB > IPv4 > DHCPv4 Snooping > DHCP Snooping Global Settings*
-* Set "DHCP Snooping" to "Enabled". Tick Apply.
+* Set *DHCP Snooping* = *Enabled*. Tick Apply.
 * Go to menu *Security > IMPB > IPv4 > DHCPv4 Snooping > DHCP Snooping VLAN Settings*
 * Set *VID List* = *1000* and *State* = *Enabled*. Tick Apply.
 * Go to menu *Security > IMPB > IPv4 > DHCPv4 Snooping > DHCP Snooping Port Settings*
@@ -155,12 +155,13 @@ Snooping will sniff DHCP communication to track which MAC gets what IP on what p
 ** *eth4/0/1* - *eth4/0/23*
 ** *eth7/0/1* - *eth7/0/23*
 
-image::DHCP_Snooping_Binding_real_tracking_example.svg[opts=inline,width=800]
+image::DHCP_Snooping_Binding_real_tracking_example.png[opts=inline0]
 
 == Protect router from direct IP connections (configuration interface, UPNP..)
 
 * Connect to Master Switch via Console port (serial cable)
 * Enter the follow series of commands, substitute w.x.y.z by internal router IP
+* _TBD: need to allow DHCP and DNS, though_
 ----
 enable 15
 configure terminal
