@@ -113,6 +113,10 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |192.168.40.0/24
 |440
 
+|e-mobility Local SIN B
+|192.168.50.0./24
+|450
+
 |===
 
 == https://en.wikipedia.org/wiki/Stackable_switch[Stacking]
