@@ -167,6 +167,8 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 
 |Subscribers devices
 |10.135.0.0/16
+
+_DHCP => 10.135.32.1 ... 10.135.255.254_
 |1100
 
 |===
@@ -178,12 +180,12 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 
 |ISP modem
 .4+|Local Elec C (Tines 5C)
-|10.133.0.1/24
-|-
+|10.135.0.1/24
+|1000
 
 |DGS-3130 Stack ID 1
 |10.134.0.1/24
-.7+|1
+.8+|1
 
 |DGS-3130 Stack ID 2
 |10.134.0.2/24
@@ -204,5 +206,14 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 
 |DGS-1210-16
 |10.134.0.111/24
+
+|RB260GSP
+|Local SIN B
+|10.134.0.132/24
+
+|DAP-2610
+|Parking
+|162.168.51.0/24 (dynamic)
+|451
 
 |===
