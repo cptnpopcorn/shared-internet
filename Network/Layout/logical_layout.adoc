@@ -179,19 +179,22 @@ _DHCP => 10.135.32.1 ... 10.135.255.254_
 |Device(s) |Location |IP address/mask |VLAN ID
 
 |ISP modem
-.4+|Local Elec C (Tines 5C)
+.5+|Local Elec C (Tines 5C)
 |10.135.0.1/24
 |1000
 
 |DGS-3130 Stack ID 1
 |10.134.0.1/24
-.8+|1
+.9+|1
 
 |DGS-3130 Stack ID 2
 |10.134.0.2/24
 
 |DGS-1210-16
 |10.134.0.151/24
+
+|Edge Router X
+|10.134.0.152/24
 
 |DGS-3130 Stack ID 4
 .2+|Local Elec A (Tines 3C)
