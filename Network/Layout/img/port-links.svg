@@ -1895,7 +1895,7 @@
       <path fill="none" d="M373.5 20.9195 L373.5 941.681 L376.5 941.681 L376.5 20.9195 Z" stroke-width="1" clip-path="url(#clipPath2)" stroke="black"/>
     </g>
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="'Tahoma'" transform="matrix(1,0,0,1,1702,879)" stroke-linecap="butt">
-      <text x="331.1514" xml:space="preserve" y="486.0639" clip-path="url(#clipPath2)" stroke="none">trunk</text>
+      <text x="331.1514" xml:space="preserve" y="574.8032" clip-path="url(#clipPath2)" stroke="none">trunk</text>
     </g>
     <g fill="rgb(184,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1702,879)" stroke="rgb(184,235,235)">
       <rect x="-316.9655" y="440.288" clip-path="url(#clipPath2)" width="1084.0677" rx="4" ry="4" height="82.1055" stroke="none"/>
