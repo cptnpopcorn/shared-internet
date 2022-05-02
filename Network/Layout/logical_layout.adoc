@@ -150,9 +150,13 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |192.168.50.0/24
 |450
 
-|e-mobility WiFi parking
+|e-mobility WiFi charging bots
 |192.168.51.0/24
 |451
+
+|e-mobility WiFi users
+|192.168.52.0/24
+|452
 
 |===
 
@@ -185,7 +189,7 @@ _DHCP => 10.135.32.1 ... 10.135.255.254_
 
 |DGS-3130 Stack ID 1
 |10.134.0.1/24
-.9+|1
+.10+|1
 
 |DGS-3130 Stack ID 2
 |10.134.0.2/24
@@ -216,7 +220,6 @@ _DHCP => 10.135.32.1 ... 10.135.255.254_
 
 |DAP-2610
 |Parking
-|162.168.51.0/24 (dynamic)
-|451
+|10.134.0.133/24
 
 |===
