@@ -53,7 +53,7 @@ The buildings are interconnected by OS2 monomode fiber cables including 6 strand
 
 image::sites-links.svg[opts=inline]
 
-This yields a star topology with C in the center, when using a single strand between two buildings. A ring topology can also be implemented by using more than one strand between two buildings. Due to cost constraints, the active equipment is not used in a way where we could take advantage of a ring topology.
+This yields a star topology with C in the center, when using a single strand between two buildings. By using two strands, a ring topology is established where one switch of builing A is looped back to one in building B, passing through building C. (See <<port-links>>)
 
 == In-Building
 
@@ -86,6 +86,7 @@ The _primary_ technical room in building C is furthermore equipped with
 * A modem serving a broadband subscription with a single dynamic IP address, to provide Internet access to a subset of rooms.
 * A layer 3 router of model Ubiquity Edge Router X. This router provides DHCP and NAT masquerading for the outgoing connectivity for a subset of technical devices.
 
+[[port-links]]
 === Switch / Router / Modem Placement and Port Assignments
 
 image::port-links.svg[Ports And Links]
