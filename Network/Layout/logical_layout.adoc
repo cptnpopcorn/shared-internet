@@ -10,27 +10,11 @@ To provide building-to-building connectivity, we use the stacking features of th
 The set of switches connected in that way is referred to as a stack. From the administrators point of view, the switches participating in a stack can be configured as one entity, by connecting to the designated master switch only. The port addressing includes not only the port number, but also the stack ID of the switch they belong to. This ID is configured explicitly before adding a switch to the stack.
 
 |===
-|Stack ID |Location |Stack Priority |Linked Switches (Stack ID)
-
-|1
-.2+|Local Elec C (Tines 5C)
-|12
-|4,2
-
-|2
-|9
-|1,7
-
-|4
-|Local Elec A (Tines 3C)
-|6
-|1
-
-|7
-|Local Elec B (Tines 1)
-|6
-|2
-
+|Stack ID |Location                 |Stack Priority |Linked Switches (Stack ID)
+|1     .2+|Local Elec C (Tines 5C)  |12             |4,2
+|2                                  |9              |1,7
+|4        |Local Elec A (Tines 3C)  |6              |1
+|7        |Local Elec B (Tines 1)   |6              |2
 |===
 
 == Virtual Local Area Networks (https://en.wikipedia.org/wiki/Virtual_LAN[VLANs])
@@ -84,126 +68,44 @@ Derived from our physical network layout and the need to effectively separate mo
 To isolate the DHCP-assigned monitoring devices, each gets its own address range in its own subnet. For simplicity and maximum compatibility, we use class-C subnets even though they only need a single address. The gateway has the `.1` address in each subnet. The range reserved for DHCP starts from `.128`.
 
 |===
-|Device |IP subnet |VLAN ID
-
-|Neovac MCR C
-|192.168.10.0/24
-|410
-
-|Neovac MCR B
-|192.168.11.0/24
-|411
-
-|Neovac MCR A1
-|192.168.12.0/24
-|412
-
-|Neovac MCR A3
-|192.168.13.0/24
-|413
-
-|Photovoltaique Local Elec C
-|192.168.20.0/24
-|420
-
-|Photovoltaique Local Elec B
-|192.168.21.0/24
-|421
-
-|Photovoltaique Local SIN B
-|192.168.22.0/24
-|422
-
-|Photovoltaique Local Elec A
-|192.168.23.0/24
-|423
-
-|Temporary / internal use
-|192.168.30.0/24
-|430
-
-|Sprinkler
-|192.168.40.0/24
-|440
-
-|e-mobility Local SIN B
-|192.168.50.0/24
-|450
-
-|e-mobility WiFi charging bots
-|192.168.51.0/24
-|451
-
-|e-mobility WiFi users
-|192.168.52.0/24
-|452
-
-|chaudières
-|192.168.60.0/24
-|460
-
+|Device                       |IP subnet          |VLAN ID
+|Neovac MCR C                 |192.168.10.0/24    |410
+|Neovac MCR B                 |192.168.11.0/24    |411
+|Neovac MCR A1                |192.168.12.0/24    |412
+|Neovac MCR A3                |192.168.13.0/24    |413
+|Photovoltaique Local Elec C  |192.168.20.0/24    |420
+|Photovoltaique Local Elec B  |192.168.21.0/24    |421
+|Photovoltaique Local SIN B   |192.168.22.0/24    |422
+|Photovoltaique Local Elec A  |192.168.23.0/24    |423
+|Temporary / internal use     |192.168.30.0/24    |430
+|Sprinkler                    |192.168.40.0/24    |440
+|e-mobility Local SIN B       |192.168.50.0/24    |450
+|e-mobility WiFi charging bots|192.168.51.0/24    |451
+|e-mobility WiFi users        |192.168.52.0/24    |452
+|chaudières                   |192.168.60.0/24    |460
 |===
 
 === Private (dynamic) IP subnets and VLAN IDs for connection sharing
 
 |===
-|Device(s) |IP address/mask |VLAN ID
-
-|ISP modem
-|10.135.0.1/16
-|1000
-
-|Subscribers devices
-|10.135.0.0/16
-
-_DHCP => 10.135.32.1 ... 10.135.255.254_
-|1100
-
+|Device(s)            |IP address/mask                                        |VLAN ID
+|ISP modem            |10.135.0.1/16                                          |1000
+|Subscribers devices  |10.135.0.0/16 _DHCP => 10.135.32.1 ... 10.135.255.254_ |1100
 |===
 
 === Private IP subnets and VLAN IDs for management
 
 |===
-|Device(s) |Location |IP address/mask |VLAN ID
-
-|ISP modem
-.5+|Local Elec C (Tines 5C)
-|10.135.0.1/24
-|1000
-
-|DGS-3130 Stack ID 1
-|10.134.0.1/24
-.10+|1
-
-|DGS-3130 Stack ID 2
-|10.134.0.2/24
-
-|DGS-1210-16
-|10.134.0.151/24
-
-|Edge Router X
-|10.134.0.152/24
-
-|DGS-3130 Stack ID 4
-.2+|Local Elec A (Tines 3C)
-|10.134.0.4/24
-
-|DGS-1210-16
-|10.134.0.131/24
-
-|DGS-3130 Stack ID 7
-.2+|Local Elec B (Tines 1)
-|10.134.0.7/24
-
-|DGS-1210-16
-|10.134.0.111/24
-
-|RB260GSP
-|Local SIN B
-|10.134.0.132/24
-
-|DAP-2610
-|Parking
-|10.134.0.133/24
-
+|Device(s)              |Location                 |IP address/mask    |VLAN ID
+|ISP modem           .5+|Local Elec C (Tines 5C)  |10.135.0.1/24      |1000
+|DGS-3130 Stack ID 1                              |10.134.0.1/24  .10+|1
+|DGS-3130 Stack ID 2                              |10.134.0.2/24
+|DGS-1210-16                                      |10.134.0.151/24
+|Edge Router X                                    |10.134.0.152/24
+|DGS-3130 Stack ID 4 .2+|Local Elec A (Tines 3C)  |10.134.0.4/24
+|DGS-1210-16                                      |10.134.0.131/24
+|DGS-3130 Stack ID 7 .2+|Local Elec B (Tines 1)   |10.134.0.7/24
+|DGS-1210-16                                      |10.134.0.111/24
+|RB260GSP               |Local SIN B              |10.134.0.132/24
+|DAP-2610               |Parking                  |10.134.0.133/24
 |===

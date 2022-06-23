@@ -10,15 +10,9 @@ There are three interconnected buildings. Alternative naming is used either in t
 image::sites.svg[opts=inline]
 |===
 |Construction Building Code |Postal Address: Chemin des Tines..
-
-|A
-|3
-
-|B
-|1
-
-|C
-|5
+|A                          |3
+|B                          |1
+|C                          |5
 |===
 
 == FTTH connection
