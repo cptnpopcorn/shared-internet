@@ -65,7 +65,7 @@ Derived from our physical network layout and the need to effectively separate mo
 
 === Private (dynamic) IP subnets and VLAN IDs for technical monitoring
 
-To isolate the DHCP-assigned monitoring devices, each gets its own address range in its own subnet. For simplicity and maximum compatibility, we use class-C subnets even though they only need a single address. The gateway has the `.1` address in each subnet. The range reserved for DHCP starts from `.128`.
+To isolate the DHCP-assigned monitoring devices, each gets its own address range in its own subnet. For simplicity and maximum compatibility, we use class-C subnets even though they only need a single address. The gateway (Edge Router X) has the `.1` address in each subnet. The range reserved for DHCP starts from `.128`.
 
 |===
 |Device                       |IP subnet          |VLAN ID
@@ -96,16 +96,25 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 === Private IP subnets and VLAN IDs for management
 
 |===
-|Device(s)              |Location                 |IP address/mask    |VLAN ID
-|ISP modem           .5+|Local Elec C (Tines 5C)  |10.135.0.1/24      |1000
-|DGS-3130 Stack ID 1                              |10.134.0.1/24  .10+|1
+|Device(s)            |Location                   |IP address/mask  |VLAN ID
+.2+|ISP modem         .6+|Local Elec C (Tines 5C) |10.135.0.1/24    .2+|1000
+                                                  |10.133.0.1/24
+|DGS-3130 Stack ID 1                              |10.134.0.1/24    .7+|1
 |DGS-3130 Stack ID 2                              |10.134.0.2/24
 |DGS-1210-16                                      |10.134.0.151/24
 |Edge Router X                                    |10.134.0.152/24
-|DGS-3130 Stack ID 4 .2+|Local Elec A (Tines 3C)  |10.134.0.4/24
+|DGS-3130 Stack ID 4  .4+|Local Elec A (Tines 3C) |10.134.0.4/24
 |DGS-1210-16                                      |10.134.0.131/24
-|DGS-3130 Stack ID 7 .2+|Local Elec B (Tines 1)   |10.134.0.7/24
+.2+|Authserver                                    |10.134.0.132/24
+                                                  |10.133.0.132/24  |1000
+|DGS-3130 Stack ID 7  .2+|Local Elec B (Tines 1)  |10.134.0.7/24    .4+|1
 |DGS-1210-16                                      |10.134.0.111/24
-|RB260GSP               |Local SIN B              |10.134.0.132/24
-|DAP-2610               |Parking                  |10.134.0.133/24
+|RB260GSP             |Local SIN B                |10.134.0.132/24
+|DAP-2610             |Parking                    |10.134.0.133/24
 |===
+
+=== User Authentication
+
+A centralized Authserver is available to manage VPN users and 802.1X authentication. This server is available in the management VLAN (to authenticate VPN users) and in the public VLAN of the shared connection (for WPA2-Enterprise access). It has multiple logical interfaces for its single physical connector.
+
+The shared connection router has an additional logical LAN interface configured, to route packets between the private VLAN hosts and the Authserver. That's necessary because layer 2 switching between them is not possible.
