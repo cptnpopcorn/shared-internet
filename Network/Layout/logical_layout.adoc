@@ -56,10 +56,13 @@ Derived from our physical network layout and the need to effectively separate mo
 |*technical monitoring:* devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router
 
 |1000
-|*shared internet:* uplink to modem for community uplink with public dynamic IP / primary of private VLAN
+|*shared internet:* uplink to modem / router for community uplink with public dynamic IP / primary of private VLAN
 
 |1100
 |*shared internet:* all rooms eligible for community access / isolated of private VLAN
+
+|1200
+|*shared internet:* shared services, reachable by routing via community router
 
 |===
 
@@ -93,12 +96,12 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |Subscribers devices  |10.135.0.0/16 _DHCP => 10.135.32.1 ... 10.135.255.254_ |1100
 |===
 
-=== Private IP subnets and VLAN IDs for management
+=== Management and services
 
 |===
 |Device(s)            |Location                   |IP address/mask  |VLAN ID
-.2+|ISP modem         .6+|Local Elec C (Tines 5C) |10.135.0.1/24    .2+|1000
-                                                  |10.133.0.1/24
+.2+|ISP modem         .6+|Local Elec C (Tines 5C) |10.135.0.1/24    |1000
+                                                  |10.133.0.1/24    |1200
 |DGS-3130 Stack ID 1                              |10.134.0.1/24    .7+|1
 |DGS-3130 Stack ID 2                              |10.134.0.2/24
 |DGS-1210-16                                      |10.134.0.151/24
@@ -106,7 +109,7 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |DGS-3130 Stack ID 4  .4+|Local Elec A (Tines 3C) |10.134.0.4/24
 |DGS-1210-16                                      |10.134.0.131/24
 .2+|Authserver                                    |10.134.0.132/24
-                                                  |10.133.0.132/24  |1000
+                                                  |10.133.0.132/24  |1200
 |DGS-3130 Stack ID 7  .2+|Local Elec B (Tines 1)  |10.134.0.7/24    .4+|1
 |DGS-1210-16                                      |10.134.0.111/24
 |RB260GSP             |Local SIN B                |10.134.0.132/24
