@@ -61,9 +61,6 @@ Derived from our physical network layout and the need to effectively separate mo
 |1100
 |*shared internet:* all rooms eligible for community access / isolated of private VLAN
 
-|1200
-|*shared internet:* shared services, reachable by routing via community router
-
 |===
 
 === Private (dynamic) IP subnets and VLAN IDs for technical monitoring
@@ -100,16 +97,16 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 
 |===
 |Device(s)            |Location                   |IP address/mask  |VLAN ID
-.2+|ISP modem         .6+|Local Elec C (Tines 5C) |10.135.0.1/24    |1000
-                                                  |10.133.0.1/24    |1200
+|ISP modem            .5+|Local Elec C (Tines 5C) |10.135.0.1/16    |1000
 |DGS-3130 Stack ID 1                              |10.134.0.1/24    .7+|1
 |DGS-3130 Stack ID 2                              |10.134.0.2/24
 |DGS-1210-16                                      |10.134.0.151/24
 |Edge Router X                                    |10.134.0.152/24
-|DGS-3130 Stack ID 4  .4+|Local Elec A (Tines 3C) |10.134.0.4/24
+|DGS-3130 Stack ID 4  .5+|Local Elec A (Tines 3C) |10.134.0.4/24
 |DGS-1210-16                                      |10.134.0.131/24
-.2+|Authserver                                    |10.134.0.132/24
-                                                  |10.133.0.132/24  |1200
+.3+|Authserver                                    |10.134.0.132/24
+                                                  .2+|10.135.1.1/16 |1000
+                                                                    |1100
 |DGS-3130 Stack ID 7  .2+|Local Elec B (Tines 1)  |10.134.0.7/24    .4+|1
 |DGS-1210-16                                      |10.134.0.111/24
 |RB260GSP             |Local SIN B                |10.134.0.132/24
@@ -118,6 +115,6 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 
 === User Authentication
 
-A centralized Authserver is available to manage VPN users and 802.1X authentication. This server is available in the management VLAN (to authenticate VPN users) and in the public VLAN of the shared connection (for WPA2-Enterprise access). It has multiple logical interfaces for its single physical connector.
+A centralized Authserver is available to manage VPN users and 802.1X authentication. This server is available in the management VLAN (to authenticate VPN users) and in the private VLANs of the shared connection (for WPA2-Enterprise access). It has multiple logical interfaces for its single physical connector.
 
-The shared connection router has an additional logical LAN interface configured, to route packets between the private VLAN hosts and the Authserver. That's necessary because layer 2 switching between them is not possible.
+The DGS-1210-16 port it is connected to is configured for assymmetric VLAN to match the private VLAN setup. It will egress VLAN ID 1 tagged, and VLAN IDs 1000 and 1100 untagged. It will tag any untagged ingress packets with VLAN ID 1000. That way it behaves exactly as an promicious port of the primary VLAN.

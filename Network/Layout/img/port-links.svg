@@ -1183,8 +1183,9 @@
       <path fill="none" d="M-1412.1282 668.1593 L-1413.5082 955.181 L-1427.0664 955.181 L-1427.0664 958.181 L-1410.5226 958.181 L-1410.5154 956.6882 L-1409.1282 668.1737 L-1412.1282 668.1593 Z" stroke-width="1" clip-path="url(#clipPath2)" stroke="black"/>
     </g>
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="'Tahoma'" transform="matrix(1,0,0,1,1702,757)" stroke-linecap="butt">
-      <text x="-1396.158" xml:space="preserve" y="768.0358" clip-path="url(#clipPath2)" stroke="none">VID 1</text>
-      <text x="-1405.9841" xml:space="preserve" y="782.5202" clip-path="url(#clipPath2)" stroke="none">VID 1200</text>
+      <text x="-1529.5518" xml:space="preserve" y="761.6138" clip-path="url(#clipPath2)" stroke="none">VID 1</text>
+      <text x="-1591.3857" xml:space="preserve" y="776.0982" clip-path="url(#clipPath2)" stroke="none">VID 1000 (ingress untagged)</text>
+      <text x="-1589.8271" xml:space="preserve" y="790.5826" clip-path="url(#clipPath2)" stroke="none">VID 1100 (egress untagged)</text>
     </g>
     <g fill="rgb(235,235,235)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1702,757)" stroke="rgb(235,235,235)">
       <rect x="-312.2233" width="1360.6165" height="40.2109" y="-740.0656" clip-path="url(#clipPath2)" stroke="none"/>
@@ -2764,13 +2765,6 @@
     </g>
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="'Tahoma'" transform="matrix(1,0,0,1,1702,757)" stroke-linecap="butt">
       <text x="322.0958" xml:space="preserve" y="85.1869" clip-path="url(#clipPath2)" stroke="none">VID 1000</text>
-    </g>
-    <g stroke-linecap="butt" transform="matrix(1,0,0,1,1702,757)" fill="rgb(153,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" stroke="rgb(153,204,0)" stroke-width="3" stroke-miterlimit="1.45">
-      <path d="M225.46 204.116 L225.46 239.116 L225.46 240.616 L974.6598 240.616 L974.6598 1016.7174 L-11.54 1016.7174 L-11.54 971.681 L-14.54 971.681 L-14.54 1018.2174 L-14.54 1019.7174 L977.6598 1019.7174 L977.6598 1018.2174 L977.6598 239.116 L977.6598 237.616 L228.46 237.616 L228.46 204.116 Z" stroke="none" clip-path="url(#clipPath2)"/>
-      <path fill="none" d="M225.46 204.116 L225.46 239.116 L225.46 240.616 L974.6598 240.616 L974.6598 1016.7174 L-11.54 1016.7174 L-11.54 971.681 L-14.54 971.681 L-14.54 1018.2174 L-14.54 1019.7174 L977.6598 1019.7174 L977.6598 1018.2174 L977.6598 239.116 L977.6598 237.616 L228.46 237.616 L228.46 204.116 Z" stroke-width="1" clip-path="url(#clipPath2)" stroke="black"/>
-    </g>
-    <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="'Tahoma'" transform="matrix(1,0,0,1,1702,757)" stroke-linecap="butt">
-      <text x="-37.9043" xml:space="preserve" y="1052.9811" clip-path="url(#clipPath2)" stroke="none">VID 1200</text>
     </g>
     <g fill="rgb(225,225,225)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1702,757)" stroke="rgb(225,225,225)">
       <rect x="-179.1513" y="114.5262" clip-path="url(#clipPath2)" width="121.1113" rx="4" ry="4" height="104.5898" stroke="none"/>
