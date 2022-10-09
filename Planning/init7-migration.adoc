@@ -1,0 +1,100 @@
+= Init7 migration planning (2023)
+:icons: image
+:icontype: svg
+
+== Current situation
+
+Our current operator, https://www.iway.ch/[iWay], provides us with an excellent and fast 10GBit connection for a competitive price of CHF 59 / month.
+
+Neverthless, we have some limitations:
+
+1. [[no-IPTV,no IPTV]]No https://en.wikipedia.org/wiki/Internet_Protocol_television[IPTV] is included and anyway with the common offers it is generally only possible to use IPTV on a very limited number of devices simultaneously
+
+2. [[limited-IPv6,limited IPv6 support]]While https://en.wikipedia.org/wiki/IPv6[IPv6], the new Internet protocol standard, is available, we only have a dynamically assigned /64 prefix and no further routing is possible
+
+=== Consequences of having <<no-IPTV>>
+
+People that are used to watch TV comfortably will either refrain from joining the shared connection or need to subscribe to a separate service such as https://zattoo.com/ch/fr[Zattoo] or https://www.teleboy.ch/fr[Teleboy]. While those services work just fine, there are drawbacks:
+
+* Additional costs, amounting to several times the costs of the shared connection itself
+* Increased bandwith usage since even when several people watch the same live TV channel, they all produce additional external traffic, eating up the overall bandwith
+
+=== Consequences of <<limited-IPv6>>
+
+* Applications such as https://en.wikipedia.org/wiki/Voice_over_IP[VoIP], messaging or video conferencing cannot accept a direct incoming link over IPv6 but need to rely on external servers, implying more lag and a higher risk of glitches. They may circumvent this limitation by using https://en.wikipedia.org/wiki/IPv4[IPv4] and https://en.wikipedia.org/wiki/UDP_hole_punching[UDP hole punching], but has solution also has limitations and is not guaranteed to work in every situation.
+
+* Making a home server available for outside connections (via https://en.wikipedia.org/wiki/Virtual_private_network[VPN], for example), is currently possible via IPv4 with an explicit configuration on the common gateway and via the common URL `ecoduboiron-common.freeddns.org`. That means a lot of configuration and being dependent on the shared network admin to configure that access in the first place. +
+With (the current) IPv6, it is only possible by using the home WiFi router in bridge mode and using the common URL, too. The bridge mode means that the home network will fail when the common network fails, and having no own firewall on the personal LAN.
+
+== Motivation to migrate to https://www.init7.net/[Init7]
+
+Our Swisscom-provided fiber lines allow subscriptions not only with Swisscom, but also with iWay and other 3rd-party providers renting the "last mile" from Swisscom. One of the possible providers is Init7 with their https://www.init7.net/en/internet/fiber7/[Fiber7-X] offer, in our case.
+
+=== Pricing
+
+* The yearly subscription costs CHF 777 (CHF 64.75 / month) and is thus not significantly different from the iWay offer
+* Some additional <<hardware>> needs to be purchased once, though.
+
+=== IPTV
+
+* Their internet connection already includes the https://www.init7.net/en/tv/offer/[TV7] offer.
+* TV7 is streamed via https://en.wikipedia.org/wiki/Multicast[multicast], without any limitation on the number of simultaneous streams / devices
+* 200 TV channels are included, 85 of them in HD
+* Traffic of other "on-the-top" content providers (needing a separate subscription) is still actively supported and assured in parallel (through peering and caching), such as
+** Teleboy
+** Wilmaa
+** Zattoo
+** Amazon
+** Apple
+** Google
+** YouTube
+** Facebook
+** Limelight
+** Netflix
+
+=== Static IPv6 address with /48 prefix
+
+* The provided IPv6 prefix never changes, so addresses can be reached constantly, without need for a dynamic DNS service
+* The provided /48 prefix allows routing to 65k subnets, meaning all users of the shared internet can configure their (WiFi) router for IPv6 and have as many stable, public IPv6 addresses as they like
+
+[[hardware,hardware]]
+== Additional hardware
+
+While iWay provides a 10GBit optical modem / router as part of the subscription, Init7 requires us to buy our own. The certified alternatives are limited and do all provide very limited routing / gatway capabilities. With iWay, there is no choice at all.
+
+To fully exploit IPTV for that many clients, none of the alternatives has sufficient routing options. That means the modem needs to be put in bridge mode and a separate, capable gateway will take care of the routing.
+
+Our optical switches in use are already perfectly appropriate to handle IPTV streams in a smart way.
+
+=== Optical Modem / Router / Media Converter
+
+Init7 offers a compatible SFP+ module, a fiber optic patch cable and a choice of routers. They explicitly allow the option of using the SFP+ module in other routers (need to confirm for the specific model).
+
+So the minimum seems to be only the SFP+ module and the patch cable, priced *CHF 99*.
+
+=== Gateway
+
+From several alternatives of 10GBit gateway routers, only few really have sufficient throughput in a real-world scenario (with IPv4 NAT and possibly some routing table entries). Even less support IGMP (needed for IPTV) with a ufficently large number of simultaneous streams.
+
+A suitable choice, fulfilling all requirements and consuming comparetively little power, would be the the https://www.draytek.com/products/vigor3910/[DrayTek Vigor3910], available for about *CHF 780* today.
+
+Compared to our today's Zyxel router, which is limited to 20k simultaneous (NATed) IP connections overall, the Vigor3910 supports up to 1 million. It also supports 125 IGMP groups - as stated by their Swiss reseller upon request. That translates to 125 different, simultaneous TV7 streams, which should easily cover our use case: about 60 households, only a fraction being interested in TV, mostly french-speaking. It is hardly probable that more than 125 different TV channels are being watched at a given time.
+
+== Schedule
+
+The iWay contract will reach its 12 month minimum period in december 2022. The cancellation period is 2 months.
+
+We dispose of 3 optical outlets available for common use, one in each building. This allows us to smoothly switch our provider by using a different outlet for the new subscription and keep the current one for a while.
+
+A transitional phase will be needed, where we have two subscpritions (iWay and Init7). During that phase installation of the Init7 connection can be completed and tested, and users can be migrated progressively. In case of any problems, they can be switched back to the iWay connection.
+
+Taking into account autumn and Christmas holidays and the availability of our network admins, complete migration is not realistic before february 2023. Our financal reserve leaves us enough margin to extend the transitional phase as long as needed without taking any risk of going bancrupt. We can only cancel the iWay contract once the new Init7 line is proven to work reliably.
+
+The following dates and expenses seem realistic
+
+* 10/2022 - negotiate contract and requirements with Init7, order hardware for about CHF 1k
+* 10/2022 - in parallel, start testing IPTV configuration on optical switches and indiviual routers with locally generated multicast streams to computers or other media streaming hardware
+* 11/2022 - start Init7 subscription for outlet in building 3 (A) where temperature regulation is best and space around the rack is less crammed than in building C (5) today
+* 11/2022 .. 01/2023 - set up Init7 HW configuration in building 3 (A), test connection from gatway / behind gateway / via internal network / behind invidual router, migrate groups of users to Init7 in intervals
+* 01/2023 (end of month) - cancel iWay contract
+* 03/2023 iWay contract ends, send iWay modem back
