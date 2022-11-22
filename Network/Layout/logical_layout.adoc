@@ -132,7 +132,7 @@ h|Device(s)           h|Location                    h|IP address/mask   h|VLAN I
                                                                         |1100
 |DGS-3130 Stack ID 7  .2+|Local Elec B (Tines 1)    |10.134.0.7/24      .4+|1
 |DGS-1210-16                                        |10.134.0.111/24
-|RB260GSP             |Local SIN B                  |10.134.0.132/24
+|RB260GSP             |Local SIN B                  |DHCP check on Edge Router X. (legacy 10.134.0.132/24)
 |DAP-2610             |Parking                      |10.134.0.133/24
 |===
 
