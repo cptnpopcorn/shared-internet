@@ -86,6 +86,7 @@ h|Device                      h|IP subnet         h|VLAN ID
 |e-mobility Local SIN B       |192.168.50.0/24    |450
 |e-mobility WiFi charging bots|192.168.51.0/24    |451
 |e-mobility WiFi users        |192.168.52.0/24    |452
+|parking WiFi users           |192.168.53.0/24    |453
 |chaudières                   |192.168.60.0/24    |460
 |===
 
