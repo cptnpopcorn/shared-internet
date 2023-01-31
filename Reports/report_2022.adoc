@@ -72,7 +72,7 @@ Pour assurer la conformité de l'utilisation de la connexion dans les lieux comm
 
 Après plusieurs demandes dans ce sens, l'installation d'un micro-serveur au sein de l'association pourrait être proposé. Ceci permettrait la mise à disposition des Wiki, pour le partage des documents avec une gestion de version automatique ou d'éditer directement en ligne, comme chez Google ou Infomaniak, mais sans les limitations et les conditions redoutables des offres commerciales "gratuites".
 
-Un autre projet serait l'acquisition du système OpenERP/Swiss pour avoir notre propre logiciel de comptabilité sans limitations et sans charges. La comptabilité Internet se base actuellement sur une offre en ligne avec des conditions restreintes mais gratuite qui n'est pas garantie de le rester le futur.
+Un autre projet serait l'installation du système OpenERP/Swiss pour avoir notre propre logiciel de comptabilité sans limitations et sans charges. La comptabilité Internet se base actuellement sur une offre en ligne avec des conditions restreintes mais gratuite qui n'est pas garantie de le rester le futur.
 
 == Incidents techniques
 
