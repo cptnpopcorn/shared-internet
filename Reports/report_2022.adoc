@@ -7,11 +7,13 @@ D'abord, grand merci à la _coordination des immeubles_ pour leur service de dis
 
 == Le début
 
-Nous avons commencé l'année 2022 avec 40 participants environ. Ils sont arrivés en vagues, selon la finalisation des bâtiments. Quelques pré-inscriptions n'ont pas pu être réalisées, car certains signataires n'ont jamais emménagé au quartier.
+Nous avons commencé l'année 2022 avec environ 40 participants. Ils sont arrivés en vagues, selon la finalisation des bâtiments. 
 
-En parallèle, 15 installations techniques dans les bâtiments (y compris nos fameuses chaudières) ont été raccordées pour la maîtrise d'ouvrage, qui nous a soutenu financièrement pour l'installation du réseau interne / inter-bâtiment en revanche. Une connexion Internet séparée (NetPlus Léman) a été abonnée pour cette partie directement par la CODHA.
+ Quelques pré-inscriptions n'ont pas pu être réalisées, car certains signataires n'ont jamais emménagé dans le quartier. 
 
-L'opérateur choisi initialement pour le partage (iWay) nous n'a pas déçu. Malgré l'activité élevée avec autant d'utilisateurs, la connexion était toujours plus que suffisante.
+En parallèle, 15 installations techniques dans les bâtiments (y compris nos fameuses chaudières) ont été raccordées pour la maîtrise d'ouvrage, qui nous a soutenu financièrement pour l'installation du réseau interne / inter-bâtiment. Bien entendu, cela a nécessité la conclusion d'un contrat séparé (NetPlus Léman) par la CODHA.
+
+L'opérateur choisi initialement pour le partage (iWay) ne nous a pas déçu. Malgré une activité élevée avec autant d'utilisateurs, la connexion était toujours plus que suffisante.
 
 == Le développement
 
@@ -20,33 +22,35 @@ Notre équipe d'administrateurs a été renforcée par Cédric Gerber et Jean-Ma
 
 Tous les admins ont des clés pour les locaux électriques et nous partageons trois clés pour les armoires informatiques, une quatrième reste chez la coordination de l'immeuble.
 
-Léa Agune s'est tâché de façon admirable de toute la comptabilité impliquée par nos activités.
+Léa Agune s'est chargée de toute la comptabilité (création de profils des participants, saisi des contrats, facturation massive et/ou individuelle des  abonnés, journalisation de chaque transactions ainsi que le suivi des paiements) du GT.
+
+A cette période, le montant de l'abonnement s'élevait à CHF 5.- par mois payable une fois par an et selon le mois d'arrivée des participants. 
 
 === Les utilisateurs
 
-Côté utilisateurs, nous avons appris que des personnes ayant encore un contrat chez NetPlus Léman ont été manipulées par les collaborateurs de ladite entreprise, qui ont semé des fausses informations concernant la faisabilité, la qualité et la fiabilité de notre connexion partagée, pour les empêcher de résilier leur contrat avec eux.
+Côté utilisateurs, nous avons appris que des personnes ayant encore un contrat chez NetPlus Léman ont été manipulées par les collaborateurs de cette entreprise. Ces mêmes personnes ont propagé de fausses informations concernant la faisabilité, la qualité et la fiabilité de notre connexion partagée dans le but d'empêcher la résilation de contrat chez eux.
 
-Une abonnée (âgée) de notre connexion a jeté l'éponge, pourtant, pour raison d'être surmenée de l'aspect technique. Elle est retourné chez son ancien opérateur en conséquence.
+Une abonnée (âgée) de notre connexion a jeté l'éponge, par simple inquiétude et par l'aspect technique de l'installation. Par conséquence, elle est retournée chez son ancien opérateur.
 
-Les retours des utilisateurs étaient très positifs jusque-là. Certains étaient victimes d'un problème très particulier avec le service POP/IMAP de Infomaniak qui était due au fait de partager une seule connexion en combinaison avec leurs mesures draconiennes contre des tentatives d'accès fautives. On a pu mitiger cela avec le changement sur Init7 et la mise en disposition du protocole IPv6.
+Les retours des utilisateurs étaient très positifs jusque-là. Certains étaient victimes d'un problème très particulier avec le service POP/IMAP de Infomaniak qui était due au fait de partager une seule connexion en combinaison avec leurs mesures draconiennes contre des tentatives d'accès fautives. On a pu régler cela avec un changement sur Init7 et la mise à disposition du protocole IPv6.
 
 == Le changement d'opérateur
 
-En été Hagen a entendu de l'offre de l'opérateur Init7, qui a certains avantages par rapport à celle de iWay. La plus évidente en est leur offre IPTV sans limitation des appareils pour un seul contrat. Le prix d’abonnement est à peu près au niveau de celui de iWay.
+En été, Hagen a entendu parler de l'offre de l'opérateur Init7, qui a certains avantages par rapport à celle de iWay. La plus évidente était leur offre IPTV sans limitation d'appareils et ceci pour un seul contrat. Le prix de l’abonnement reste à-peu-près le même que celui d'iWay.
 
-Le GT a accepté le plan de changer pour Init7 après la durée minimale de l'abonnement iWay (décembre 2022). Une longue phase de transition a été prévue où nous gardions les deux connexions en parallèle dès novembre 2022 pour migrer sans risque.
+Le GT a accepté le changement sur Init7 après la durée minimale de l'abonnement iWay (décembre 2022). Une longue phase de transition a été prévue et nous avons gardé les deux connexions en parallèle dès novembre 2022 afin de migrer sans risque.
 
-Nous avons profité de ce changement pour introduire un routeur commun plus sophistiqué, qui garantira une bonne performance et un bon fonctionnement avec plus en plus de participants. Cela était un processus un peu laborieux et prolongé car le matériel choisi initialement était défectueux ou ne correspondait pas aux exigences. C'était seulement le troisième modèle qui état satisfaisant enfin.
+Nous avons profité de ce changement pour introduire un routeur commun plus sophistiqué, qui garantira une bonne performance et un bon fonctionnement avec de plus en plus de participants. Cela était un processus un peu laborieux et prolongé car le matériel choisi initialement était défectueux ou ne correspondait pas aux exigences. Le troisième modèle nous satisfait enfin.
 
-Fin janvier 2023, la migration est complète. L'abonnement iWay a été résilié pour fin février 2023.
+Fin janvier 2023, la migration a été finalisée. L'abonnement iWay sera résilié fin février 2023.
 
 == Les finances
 
-Avec le nombre croissant de participants le modèle de partage rentabilise mieux en mieux. Tomas pouvait ajuster la projection financière et nous avons pu fixer le tarif 2023 à CHF 2 par mois par menage - y compris la TV, des adresses IPv6 individuelles et l'amortissement de l'infrastructure.
+Avec un nombre croissant de participants le modèle de partage se rentabilise de mieux en mieux. Tomas pouvait ajuster la projection financière et nous avons pu fixer le tarif 2023 à CHF 2.- par mois et ceci en incluant,la TV, des adresses IPv6 individuelles et l'amortissement de l'infrastructure.
 
-Nos finances sont très saines. Nous avons largement des réserves en cash et en matériel pour répondre aux aléas quelconques (voir le rapport de la comptabilité et le rapport des vérificateurs des comptes). Nous pourrons amortir le matériel installé dans moins que 10 ans, lorsque nous sommes encore bien dans la période de garantie, qui est de 5 ans pour les appareils les plus critiques.
+Nos finances sont très saines. Nous avons suffisament de réserves en cash ainsi qu'en matériel pour répondre aux aléas quelconques (voir le rapport de la comptabilité et le rapport des vérificateurs des comptes). Nous pourrons amortir le matériel installé dans moins de 10 ans, tout en restant dans la période de garantie, qui est de 5 ans pour les appareils les plus critiques.
 
-Aujourd’hui nous comptons 73 menages, les 2 salles communes et le local du quartier qui partagent la connexion collective. Le nombre d'utilisateurs ne cesse pas de croître.
+Aujourd’hui nous comptons 73 ménages, les 2 salles communes et le local du quartier qui partagent la connexion collective. Le nombre d'utilisateurs ne cesse de croître.
 
 == La Perspective
 
@@ -56,19 +60,19 @@ Nous continuerons d'élaborer les procédures de dépannage.
 
 Nous convertirons une partie de notre cash en materiel de réserve afin d'assurer un service sans interruptions majeures.
 
-La planification financière s'adaptera à la croissance et aux imprévus à venir, toujours avec le but de minimiser les coûts mais en garantissant un maximum de disponibilité.
+La planification financière s'adaptera à la croissance et aux imprévus à venir, toujours dans le but de minimiser les coûts mais en garantissant un maximum de disponibilité.
 
-Selon l'utilisation réelle, nous garderons l'option d'ajouter une deuxième connexion pour mitiger l'éventuelle saturation, don't nous sommes actuellement encore _très_ loin.
+Selon l'utilisation réelle, nous garderons en option l’idée d’une deuxième connexion à ajouter afin d’anticiper une éventuelle saturation, dont nous sommes actuellement encore _très_ loin.
 
 La formation des "nouveaux" admins continuera, afin de se partager l'effort et d'assurer une bonne gestion en permanence.
 
-Pour assurer la conformité de l'utilisation de la connexion dans les lieux communs avec les conditions de l'opérateur, pour avoir un minimum de responsabilisation et pour mieux assurer la sphère privée des membres, l'accès dans ces endroits sera individualisé à moyen terme. Chaque membre aura son propre code d'accès pour les réseaux WiFi communs (qui peut bien sur être partagé avec des invités temporairement).
+Pour assurer la conformité de l'utilisation de la connexion dans les lieux communs (selon les conditions de l'opérateur) et pour mieux assurer la sphère privée des membres, l'accès dans ces endroits sera individualisé à moyen terme. Chaque membre aura son propre code d'accès pour les réseaux WiFi communs (qui peut bien sur être partagé temporairement avec des invités ).
 
 === Les Projets Nébuleux
 
-Après plusieurs demandes dans ce sens, l'installation d'un micro-serveur au sein de l'association pourrait être proposé. Ceci permettrait la mise à disposition des Wiki, de partager des documents avec une gestion des versions automatique ou les éditer directement en ligne, comme chez Google ou Infomaniak, mais sans les limitations et les conditions redoutables des offres commerciales "gratuites".
+Après plusieurs demandes dans ce sens, l'installation d'un micro-serveur au sein de l'association pourrait être proposé. Ceci permettrait la mise à disposition des Wiki, pour le partage des documents avec une gestion de version automatique ou d'éditer directement en ligne, comme chez Google ou Infomaniak, mais sans les limitations et les conditions redoutables des offres commerciales "gratuites".
 
-Un autre projet à investiguer serait une instance du système OpenERP/Swiss pour avoir notre propre logiciel de comptabilité sans limitations et sans charges. La comptabilité Internet se base actuellement sur une offre gratuite en ligne qui est limitée et n'est pas garantie de rester gratuite dans le futur.
+Un autre projet serait l'acquisition du système OpenERP/Swiss pour avoir notre propre logiciel de comptabilité sans limitations et sans charges. La comptabilité Internet se base actuellement sur une offre en ligne avec des conditions restreintes mais gratuite qui n'est pas garantie de le rester le futur.
 
 == Incidents techniques
 
