@@ -1,9 +1,8 @@
 :imagesdir: img
+
 = Activités GT Internet partagé 2022
 
-D'abord, grand merci à la _coordination des immeubles_ pour leur service de distribution des kit Internet aux nouveaux participants.
-
-== Résumé
+D'abord, grand merci à la _coordination des immeubles_ pour leur service de distribution des kit Internet aux nouveaux participants et aussi à ces gens qui ont aidé d'autres avec l'installation de leur matériel.
 
 == Le début
 
@@ -48,7 +47,7 @@ Fin janvier 2023, la migration a été finalisée. L'abonnement iWay sera résil
 
 Avec un nombre croissant de participants le modèle de partage se rentabilise de mieux en mieux. Tomas pouvait ajuster la projection financière et nous avons pu fixer le tarif 2023 à CHF 2.- par mois et ceci en incluant,la TV, des adresses IPv6 individuelles et l'amortissement de l'infrastructure.
 
-Nos finances sont très saines. Nous avons suffisament de réserves en cash ainsi qu'en matériel pour répondre aux aléas quelconques (voir le rapport de la comptabilité et le rapport des vérificateurs des comptes). Nous pourrons amortir le matériel installé dans moins de 10 ans, tout en restant dans la période de garantie, qui est de 5 ans pour les appareils les plus critiques.
+Nos finances sont très saines. Nous avons suffisamment de réserves en cash ainsi qu'en matériel pour répondre aux aléas quelconques (voir le rapport de la comptabilité et le rapport des vérificateurs des comptes). Nous pourrons amortir le matériel installé dans moins de 10 ans, tout en restant dans la période de garantie, qui est de 5 ans pour les appareils les plus critiques.
 
 Aujourd’hui nous comptons 73 ménages, les 2 salles communes et le local du quartier qui partagent la connexion collective. Le nombre d'utilisateurs ne cesse de croître.
 
@@ -72,15 +71,10 @@ Pour assurer la conformité de l'utilisation de la connexion dans les lieux comm
 
 Après plusieurs demandes dans ce sens, l'installation d'un micro-serveur au sein de l'association pourrait être proposé. Ceci permettrait la mise à disposition des Wiki, pour le partage des documents avec une gestion de version automatique ou d'éditer directement en ligne, comme chez Google ou Infomaniak, mais sans les limitations et les conditions redoutables des offres commerciales "gratuites".
 
-Un autre projet serait l'installation du système OpenERP/Swiss pour avoir notre propre logiciel de comptabilité sans limitations et sans charges. La comptabilité Internet se base actuellement sur une offre en ligne avec des conditions restreintes mais gratuite qui n'est pas garantie de le rester le futur.
+Un autre projet serait l'installation du système OpenERP/Swiss pour avoir notre propre logiciel de comptabilité sans limitations et sans charges. La comptabilité Internet se base actuellement sur une offre en ligne avec des conditions restreintes mais gratuite dont la continuité n'est pas garantie.
 
 == Incidents techniques
 
-TODO
+Fin janvier 2022 nous avons eu des brèves interruptions inexpliquées du lien. Après consultation du support technique iWay, une mise à jour du logiciel du routeur principal a été mis à disposition, qui a réglé le souci.
 
-* brèves interruptions inexpliquées du lien après 2 / 3 semaines; mise à jour du routeur selon indications du support iWay, plus jamais du soucis
-* coupures globales d'électricité: généralement bien survécu, une fois petit hoquet sur un switch du bât 3 (affecté 24 utilisateurs) - résolu de façon efficace par Cédric, Jean-Matthieu, Tomas; investigation pour rendre la configuration plus robuste
-
-== Précisions
-
-TODO
+Il y avait deux coupures générales d'électricité dans tous les bâtiments, dont une planifiée. L'autre a été provoquée par un orage à minuit, où un des commutateurs principales avait un hoquet au démarrage automatique. Cela a affecté quelques utilisateurs du bâtiment 3. Cédric, Jean-Matthieu et Tomas ont résolu le problème avec un redémarrage manuel de l'appareil le lendemain. Nous continuerons d'analyser la source de ce couac avec le but de l'éviter en cas d'une autre coupure.
