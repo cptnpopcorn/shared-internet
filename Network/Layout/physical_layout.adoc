@@ -61,7 +61,9 @@ The FTTH layout requires optical cables of type OS2 to join all connected rooms 
 
 The majority of technical building installations that need Internet connectivity are connected to the technical room via copper Ethernet cables. For long distances, OS2 optical cable is used, with multiple strands. In those cases, an OTO is present close to the installation (requiring a media converter to connect the RJ45-based devices) and another one in the technical room.
 
-=== Technical Room
+=== Technical Rooms
+
+==== Common
 
 Each technical room is equipped with
 
@@ -74,11 +76,37 @@ Each technical room is equipped with
 * One or more primary managed layer 3 optical switches with 24 SFP, 2 10GBASE-T, and 4 SFP+ connectors, of the model D-Link DGS-3130-30S. Those switches provide cross-building connectivity between modems (for operator subscriptions), rooms and second-level RJ45 switches.
 * One secondary managed layer 2 switch with 16 RJ45 and 2 SFP connectors, of the model D-Link 1210-16. Those switches provide connectivity between modems (for operator subscriptions), technical installations (primarily on RJ45 ports), and primary-level switches (on SFP ports, to provide cross-building connectivity).
 
-The _primary_ technical room in building C is furthermore equipped with
+==== Building C
+
+The technical room in building C is equipped with
 
 * A modem serving a subscription providing a set of public IP addresses, to allow incoming connections to specific technical devices, as well as outgoing connectivity for more technical devices using a shared public IP address via DHCP + masquerading NAT
-* A modem serving a broadband subscription with a single dynamic IP address, to provide Internet access to a subset of rooms.
 * A layer 3 router of model Ubiquity Edge Router X. This router provides DHCP and NAT masquerading for the outgoing connectivity for a subset of technical devices.
+
+==== Building A
+
+The technical room in building A is equipped with
+
+* A 10GBit XGS-PON media converter Nokia XS-010X-Q
+* A MikroTik CR2004-1G-12S+2XS gateway router
+* A Banana Pi to host a user database and authentication services (LDAP, RADIUS), with an internal DNS entry 'auth.eco'
+* A Raspberry Pi 2B to provide user services (collaboration, organization, documentation), with an internal DNS entry 'services.eco'
+
+==== Building B
+
+The technical room in building B is equipped with
+
+* A PoE injector that provides power to the WiFi router in the parking level -2
+
+=== Local SIN
+
+The main power entry room (Local SIN) beneath building B is equipped with
+
+* A MikroTik RB260 SFP / RJ45 router, to connect photovoltaic and building power consumption monitoring equipment
+
+=== Indoor parking lower level
+
+Close to the fire door, a wireless router DAP-2610 is mounted to the ceiling raceway, providing separate WiFi SSIDs for the electric car chargers, internet for the charger users and for association members.
 
 [[port-links]]
 === Switch / Router / Modem Placement and Port Assignments
