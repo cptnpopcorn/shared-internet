@@ -10,7 +10,8 @@ To provide building-to-building connectivity, we use the stacking features of th
 The set of switches connected in that way is referred to as a stack. From the administrators point of view, the switches participating in a stack can be configured as one entity, by connecting to the designated master switch only. The port addressing includes not only the port number, but also the stack ID of the switch they belong to. This ID is configured explicitly before adding a switch to the stack.
 
 |===
-h|Stack ID  h|Location                  h|Stack Priority    h|Linked Switches (Stack ID)
+|Stack ID   |Location                   |Stack Priority     |Linked Switches (Stack ID)
+
 |1          .2+|Local Elec C (Tines 5C) |TBD                |4,2
 |2                                      |TBD                |1,7
 |4          .2+|Local Elec A (Tines 3C) |TBD                |1,5
@@ -42,7 +43,7 @@ Switch ports can also be configured as https://www.practicalnetworking.net/stand
 Derived from our physical network layout and the need to effectively separate most devices from each other, we define VLAN IDs as follows:
 
 |===
-h|VLAN ID h|Purpose
+|VLAN ID |Purpose
 
 |1
 |*default:* inter-switch protocols, administration (only)
@@ -72,7 +73,8 @@ h|VLAN ID h|Purpose
 To isolate the DHCP-assigned monitoring devices, each gets its own address range in its own subnet. For simplicity and maximum compatibility, we use class-C subnets even though they only need a single address. The gateway (Edge Router X) has the `.1` address in each subnet. The range reserved for DHCP starts from `.128`.
 
 |===
-h|Device                      h|IP subnet         h|VLAN ID
+|Device                       |IP subnet          |VLAN ID
+
 |Neovac MCR C                 |192.168.10.0/24    |410
 |Neovac MCR B                 |192.168.11.0/24    |411
 |Neovac MCR A1                |192.168.12.0/24    |412
@@ -93,7 +95,7 @@ h|Device                      h|IP subnet         h|VLAN ID
 === Private (dynamic) IP subnets and VLAN IDs for connection sharing
 
 |===
-h|Device(s) h|IP address/mask h|VLAN ID
+|Device(s) |IP address/mask |VLAN ID
 
 |ISP modem iWay
 |10.135.0.1/16
@@ -119,24 +121,23 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 === Management and services
 
 |===
-h|Device(s)           h|Location                    h|IP address/mask   h|VLAN ID
+|Device(s)            |Location                     |IP address/mask   h|VLAN ID
+
 |ISP modem            .5+|Local Elec C (Tines 5C)   |10.135.0.1/16      |1000
 |DGS-3130 Stack ID 1                                |10.134.0.1/24      .8+|1
 |DGS-3130 Stack ID 2                                |10.134.0.2/24
 |DGS-1210-16                                        |10.134.0.151/24
 |Edge Router X                                      |10.134.0.152/24
-|DGS-3130 Stack ID 4  .8+|Local Elec A (Tines 3C)   |10.134.0.4/24
+|DGS-3130 Stack ID 4  .6+|Local Elec A (Tines 3C)   |10.134.0.4/24
 |DGS-3130 Stack ID 5                                |10.134.0.5/24
 |DGS-1210-16                                        |10.134.0.131/24
 .3+|Authserver                                      |10.134.0.132/24
                                                     .2+|10.135.1.1/16   |1000
                                                                         |1100
-.2+|UDM Pro                                         |10.134.0.133/24    |1
-                                                    |10.133.0.1/16      |2000
 |DGS-3130 Stack ID 7  .2+|Local Elec B (Tines 1)    |10.134.0.7/24      .4+|1
 |DGS-1210-16                                        |10.134.0.111/24
 |RB260GSP             |Local SIN B                  |DHCP check on Edge Router X. (legacy 10.134.0.132/24)
-|DAP-2610             |Parking                      |10.134.0.133/24
+|DAP-2610             |Parking                      |10.134.0.112/24
 |===
 
 === User Authentication
