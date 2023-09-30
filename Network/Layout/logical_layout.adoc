@@ -38,7 +38,7 @@ Packets are assigned to specific VLANs by 'tagging' them with a special layer 2 
 
 Switch ports can also be configured as https://www.practicalnetworking.net/stand-alone/vlans/["trunk" ports]. Those ports only accept or output tagged packets, untouched. That way they can travel to another switch or router, where they are still identifiable with respect to the VLAN they belong to.
 
-=== VLAN IDs
+=== VLAN ID numbering
 
 Derived from our physical network layout and the need to effectively separate most devices from each other, we define VLAN IDs as follows:
 
@@ -57,18 +57,20 @@ Derived from our physical network layout and the need to effectively separate mo
 |4__nn__
 |*technical monitoring:* devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router
 
-|1000, 2000 footnote:[during provider transition, using two equivalent private VLANs in parallel]
+|2000
 |*shared internet:* uplink to modem / router for community uplink with public dynamic IP / primary of private VLAN
 
-|1100, 2100
+|2100
 |*shared internet:* all rooms eligible for community access / isolated of private VLAN
 
-|1200, 2200
-|*shared internet:* common areas, community of private VLAN (for mesh WiFi etc.)
+|2200
+|public services (servers)
 
 |===
 
-=== Private (dynamic) IP subnets and VLAN IDs for technical monitoring
+=== Management and services
+
+==== Technical IP subnets
 
 To isolate the DHCP-assigned monitoring devices, each gets its own address range in its own subnet. For simplicity and maximum compatibility, we use class-C subnets even though they only need a single address. The gateway (Edge Router X) has the `.1` address in each subnet. The range reserved for DHCP starts from `.128`.
 
@@ -92,56 +94,80 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |chaudières                   |192.168.60.0/24    |460
 |===
 
-=== Private (dynamic) IP subnets and VLAN IDs for connection sharing
+==== Common IP subnets
 
 |===
-|Device(s) |IP address/mask |VLAN ID
+|Scope |IP address/mask |VLAN ID
 
-|ISP modem iWay
-|10.135.0.1/16
-|1000
+|Management (routers, switches, management services)
+|10.132.0.0/16
+|1 (default VLAN)
 
-|Subscriber devices iWay
-a|10.135.0.0/16
-
-_DHCP => 10.135.32.1 ... 10.135.255.254_
-|1100, 1200
-
-|ISP ONT Init7
-|10.133.0.1/16
-|2000
-
-|Subscriber devices Init7
+|Shared internet clients routed to Init7 connection and public services
 a|10.133.0.0/16
 
 _DHCP => 10.133.32.1 ... 10.133.255.254_
-|2100, 2200                                     
+|2000, 2100
+
+|Public services
+|10.134.0.0/16
+|2200
+
 |===
 
-=== Management and services
+==== Devices
 
 |===
-|Device(s)            |Location                     |IP address/mask   h|VLAN ID
+|Device(s)                  |Location                       |IP address/mask   h|VLAN ID
 
-|ISP modem            .5+|Local Elec C (Tines 5C)   |10.135.0.1/16      |1000
-|DGS-3130 Stack ID 1                                |10.134.0.1/24      .8+|1
-|DGS-3130 Stack ID 2                                |10.134.0.2/24
-|DGS-1210-16                                        |10.134.0.151/24
-|Edge Router X                                      |10.134.0.152/24
-|DGS-3130 Stack ID 4  .6+|Local Elec A (Tines 3C)   |10.134.0.4/24
-|DGS-3130 Stack ID 5                                |10.134.0.5/24
-|DGS-1210-16                                        |10.134.0.131/24
-.3+|Authserver                                      |10.134.0.132/24
-                                                    .2+|10.135.1.1/16   |1000
-                                                                        |1100
-|DGS-3130 Stack ID 7  .2+|Local Elec B (Tines 1)    |10.134.0.7/24      .4+|1
-|DGS-1210-16                                        |10.134.0.111/24
-|RB260GSP             |Local SIN B                  |DHCP check on Edge Router X. (legacy 10.134.0.132/24)
-|DAP-2610             |Parking                      |10.134.0.112/24
+|NetPlus Bridge				.7+|Local Elec C (Tines 5C)		|-					|100
+|DGS-3130 Stack ID 1										|10.134.0.1/24      .4+|1
+|DGS-3130 Stack ID 2                                        |10.134.0.2/24
+|DGS-1210-16                                                |10.134.0.151/24
+.3+|Edge Router X											|10.134.0.152/24
+															|192.168.x.y		|4__nn__
+															|NetPlus static		|100
+|Nokia XS-010X-Q bridge    	.11+|Local Elec A (Tines 3C)	|-					|-
+.3+|Mikrotik CCR2004 router									|10.133.0.1/16		|2000
+															|10.132.0.1/16		|2200
+															|Init7 DHCP			|-
+|DGS-3130 Stack ID 4										|10.134.0.4/24		.4+|1
+|DGS-3130 Stack ID 5                                        |10.134.0.5/24
+|DGS-1210-16                                                |10.134.0.131/24
+.2+|Auth (Banana PI M1, server)								|10.134.0.132/24
+                                                    		|10.132.0.132/16	|2200
+.2+|Services (Raspberry Pi 4, server)						|10.134.0.133/16	|1
+															|10.132.0.133/16	|2200
+|DGS-3130 Stack ID 7  .2+|Local Elec B (Tines 1)            |10.134.0.7/24      .4+|1
+|DGS-1210-16                                                |10.134.0.111/24
+|RB260GSP             |Local SIN B                          |DHCP  / check on Edge Router X      
+|DAP-2610             |Parking                              |10.134.0.112/24
 |===
+
+==== Primary router (Mikrotik CCR2004, building A)
+
+===== Connections
+
+* Init7 network (internet) via the Nokia XS-010X-Q bridge. It gets a public IP via DHCP for that interface.
+* internet clients on the isolated VLAN via the main switches.
+* public servers via the services network / VLAN.
+
+==== Technical router (Edge router X, building C)
+
+===== Connections
+
+* NetPlus network (internet) via a bridge from NetPlus. It has a public static IP in a /28 subnet.
+* technical devices, via dedicated VLANs via the main switches
+* management network on the default VLAN
 
 === User Authentication
 
-A centralized Authserver is available to manage VPN users and 802.1X authentication. This server is available in the management VLAN (to authenticate VPN users) and in the private VLANs of the shared connection (for WPA2-Enterprise access). It has multiple logical interfaces for its single physical connector.
+A server "auth" is envisioned to manage VPN users and 802.1X authentication. This server will be available in the management VLAN (to authenticate VPN users) and in the primary VLAN of the shared internet private VLAN (for WPA2-Enterprise access). It has multiple logical interfaces for its single physical connector.
 
-The DGS-1210-16 port it is connected to is configured for assymmetric VLAN to match the private VLAN setup. It will egress VLAN ID 1 tagged, and VLAN IDs 1000 and 1100 untagged. It will tag any untagged ingress packets with VLAN ID 1000. That way it behaves exactly as an promicious port of the primary VLAN.
+This device will also provide backup storage for the "services" server.
+
+=== Services
+
+For various community services, a "services" server is present in the services subnet / VLAN.
+
+This device will also provide backup storage for the "auth" server.
