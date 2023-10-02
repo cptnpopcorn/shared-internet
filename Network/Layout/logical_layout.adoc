@@ -48,6 +48,9 @@ Derived from our physical network layout and the need to effectively separate mo
 |1
 |*default:* inter-switch protocols, administration (only)
 
+|11
+|*shared internet:* Swisscom VLAN for Init7 traffic
+
 |100
 |*technical monitoring:* uplink to modem with 13 static public IPs { IP~P0~ .. IP~P12~ }, also including masquerading NAT + DHCP router
 
@@ -127,7 +130,7 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 .3+|Edge Router X											|10.134.0.152/24
 															|192.168.x.y		|4__nn__
 															|NetPlus static		|100
-|Nokia XS-010X-Q bridge    	.11+|Local Elec A (Tines 3C)	|-					|-
+|Nokia XS-010X-Q bridge    	.11+|Local Elec A (Tines 3C)	|-					|11
 .3+|Mikrotik CCR2004 router									|10.133.0.1/16		|2000
 															|10.132.0.1/16		|2200
 															|Init7 DHCP			|-
