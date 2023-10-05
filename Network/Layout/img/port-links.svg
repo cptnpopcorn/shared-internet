@@ -243,7 +243,7 @@
       <rect x="-1653.333" y="743.4845" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="1080.5961" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="-663.3087" xml:space="preserve" y="760.4918" clip-path="url(#clipPath2)" stroke="none">DGS-1210-16</text>
+      <text x="-765.4523" xml:space="preserve" y="760.4918" clip-path="url(#clipPath2)" stroke="none">DGS-1210-16 - 10.134.0.131</text>
       <rect x="-1653.333" y="743.4845" clip-path="url(#clipPath2)" fill="none" width="1080.5961" stroke-dasharray="6,2" rx="4" ry="4" height="142.1055"/>
     </g>
     <g fill="rgb(153,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1686,757)" stroke="rgb(153,204,0)">
@@ -1350,7 +1350,7 @@
       <rect x="-1655.3965" y="438.8037" clip-path="url(#clipPath2)" fill="rgb(255,149,139)" width="1083.8041" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="-789.9498" xml:space="preserve" y="455.811" clip-path="url(#clipPath2)" stroke="none">Primary router Miktotik CCR2004</text>
+      <text x="-875.7164" xml:space="preserve" y="455.811" clip-path="url(#clipPath2)" stroke="none">Primary router Miktotik CCR2004 - 10.133.0.1</text>
       <rect x="-1655.3965" y="438.8037" clip-path="url(#clipPath2)" fill="none" width="1083.8041" stroke-dasharray="6,2" rx="4" ry="4" height="88.043"/>
     </g>
     <g fill="yellow" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1686,757)" stroke="yellow">
@@ -1971,7 +1971,7 @@
       <rect x="-223.04" y="844.5755" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="1082.3825" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="768.7707" xml:space="preserve" y="861.5829" clip-path="url(#clipPath2)" stroke="none">DGS-1210-16</text>
+      <text x="666.6271" xml:space="preserve" y="861.5829" clip-path="url(#clipPath2)" stroke="none">DGS-1210-16 - 10.134.0.151</text>
       <rect x="-223.04" y="844.5755" clip-path="url(#clipPath2)" fill="none" width="1082.3825" stroke-dasharray="6,2" rx="4" ry="4" height="142.1055"/>
     </g>
     <g fill="rgb(153,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1686,757)" stroke="rgb(153,204,0)">
@@ -2204,7 +2204,7 @@
     </g>
     <g fill="rgb(225,225,225)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1686,757)" stroke="rgb(225,225,225)">
       <rect x="151.96" y="660.9845" clip-path="url(#clipPath2)" width="300" rx="4" ry="4" height="82.1055" stroke="none"/>
-      <rect x="151.96" y="660.9845" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="300" height="22.1055" stroke="none"/>
+      <rect x="151.96" y="660.9845" clip-path="url(#clipPath2)" fill="rgb(255,149,139)" width="300" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
       <text x="266.188" xml:space="preserve" y="677.9918" clip-path="url(#clipPath2)" stroke="none">Genesis DRG7000 (NetPlus)</text>
@@ -2260,7 +2260,7 @@
       <rect x="-178.04" y="660.9845" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="300" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="-17.5815" xml:space="preserve" y="677.9918" clip-path="url(#clipPath2)" stroke="none">RT1 (Edge Router X)</text>
+      <text x="-77.2959" xml:space="preserve" y="677.9918" clip-path="url(#clipPath2)" stroke="none">Edge Router X - 10.134.0.152</text>
       <rect x="-178.04" y="660.9845" clip-path="url(#clipPath2)" fill="none" width="300" stroke-dasharray="6,2" rx="4" ry="4" height="82.1055"/>
     </g>
     <g fill="rgb(153,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1686,757)" stroke="rgb(153,204,0)">
@@ -3665,7 +3665,7 @@
       <rect x="1232.3893" y="844.5755" clip-path="url(#clipPath2)" fill="rgb(235,235,235)" width="1082.3825" height="22.1055" stroke="none"/>
     </g>
     <g font-size="15px" stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" text-rendering="geometricPrecision" font-family="'Tahoma'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-      <text x="2224.2" xml:space="preserve" y="861.5829" clip-path="url(#clipPath2)" stroke="none">DGS-1210-16</text>
+      <text x="2122.0564" xml:space="preserve" y="861.5829" clip-path="url(#clipPath2)" stroke="none">DGS-1210-16 - 10.134.0.111</text>
       <rect x="1232.3893" y="844.5755" clip-path="url(#clipPath2)" fill="none" width="1082.3825" stroke-dasharray="6,2" rx="4" ry="4" height="142.1055"/>
     </g>
     <g fill="rgb(153,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,1686,757)" stroke="rgb(153,204,0)">
