@@ -80,21 +80,21 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |===
 |Device                       |IP subnet          |VLAN ID
 
-|Neovac MCR C                 |192.168.10.0/24    |410
-|Neovac MCR B                 |192.168.11.0/24    |411
-|Neovac MCR A1                |192.168.12.0/24    |412
-|Neovac MCR A3                |192.168.13.0/24    |413
-|Photovoltaique Local Elec C  |192.168.20.0/24    |420
-|Photovoltaique Local Elec B  |192.168.21.0/24    |421
-|Photovoltaique Local SIN B   |192.168.22.0/24    |422
-|Photovoltaique Local Elec A  |192.168.23.0/24    |423
-|Temporary / internal use     |192.168.30.0/24    |430
-|Sprinkler                    |192.168.40.0/24    |440
-|e-mobility Local SIN B       |192.168.50.0/24    |450
-|e-mobility WiFi charging bots|192.168.51.0/24    |451
-|e-mobility WiFi users        |192.168.52.0/24    |452
-|parking WiFi users           |192.168.53.0/24    |453
-|chaudières                   |192.168.60.0/24    |460
+|Neovac MCR C                 |192.168.10.0/24	|410
+|Neovac MCR B                 |192.168.11.0/24	|411
+|Neovac MCR A1                |192.168.12.0/24	|412
+|Neovac MCR A3                |192.168.13.0/24	|413
+|Photovoltaique Local Elec C  |192.168.20.0/24	|420
+|Photovoltaique Local Elec B  |192.168.21.0/24	|421
+|Photovoltaique Local SIN B   |192.168.22.0/24	|422
+|Photovoltaique Local Elec A  |192.168.23.0/24	|423
+|Temporary / internal use     |192.168.30.0/24	|430
+|Sprinkler                    |192.168.40.0/24	|440
+|e-mobility Local SIN B       |192.168.50.0/24	|450
+|e-mobility WiFi charging bots|192.168.51.0/24	|451
+|e-mobility WiFi users        |192.168.52.0/24	|452
+|parking WiFi users           |10.133.0.0/16	|453
+|chaudières                   |192.168.60.0/24	|460
 |===
 
 ==== Common IP subnets
@@ -103,7 +103,7 @@ To isolate the DHCP-assigned monitoring devices, each gets its own address range
 |Scope |IP address/mask |VLAN ID
 
 |Management (routers, switches, management services)
-|10.132.0.0/16
+|10.134.0.0/16
 |1 (default VLAN)
 
 |Shared internet clients routed to Init7 connection and public services
@@ -113,7 +113,7 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 |2000, 2100
 
 |Public services
-|10.134.0.0/16
+|10.132.0.0/16
 |2200
 
 |===
@@ -123,14 +123,14 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 |===
 |Device(s)                  |Location                       |IP address/mask   h|VLAN ID
 
-|NetPlus Bridge				.7+|Local Elec C (Tines 5C)		|-					|100
+|NetPlus Modem				.7+|Local Elec C (Tines 5C)		|bridge				|100
 |DGS-3130 Stack ID 1										|10.134.0.1/24      .4+|1
 |DGS-3130 Stack ID 2                                        |10.134.0.2/24
 |DGS-1210-16                                                |10.134.0.151/24
 .3+|Edge Router X											|10.134.0.152/24
 															|192.168.x.y		|4__nn__
 															|NetPlus static		|100
-|Nokia XS-010X-Q bridge    	.11+|Local Elec A (Tines 3C)	|-					|11
+|Nokia XS-010X-Q 		   	.11+|Local Elec A (Tines 3C)	|bridge				|11
 .3+|Mikrotik CCR2004 router									|10.133.0.1/16		|2000
 															|10.132.0.1/16		|2200
 															|Init7 DHCP			|-
@@ -141,10 +141,14 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
                                                     		|10.132.0.132/16	|2200
 .2+|Services (Raspberry Pi 4, server)						|10.134.0.133/16	|1
 															|10.132.0.133/16	|2200
-|DGS-3130 Stack ID 7  .2+|Local Elec B (Tines 1)            |10.134.0.7/24      .4+|1
+|DGS-3130 Stack ID 7  		.2+|Local Elec B (Tines 1)		|10.134.0.7/24      .3+|1
 |DGS-1210-16                                                |10.134.0.111/24
-|RB260GSP             |Local SIN B                          |DHCP  / check on Edge Router X      
-|DAP-2610             |Parking                              |10.134.0.112/24
+.2+|RB260GSP             	.2+|Local SIN B					|DHCP  / check on Edge Router X
+															|bridge				|450
+.4+|DAP-2610          		.4+|Parking						|10.134.0.112/24	|1
+															.3+|bridge			|451
+																				|452
+																				|453
 |===
 
 ==== Primary router (Mikrotik CCR2004, building A)

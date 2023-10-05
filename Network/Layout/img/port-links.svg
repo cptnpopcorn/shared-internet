@@ -3813,6 +3813,14 @@
       <text x="1915.8385" xml:space="preserve" y="961.4447" clip-path="url(#clipPath2)" stroke="none">20</text>
     </g>
     <g stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" stroke="rgb(255,204,0)" stroke-width="3" stroke-miterlimit="1.45">
+      <path d="M1980.8893 -204.393 L1980.8893 800.4076 L1740.8893 800.4076 L1740.8893 801.9076 L1740.8893 941.681 L1743.8893 941.681 L1743.8893 803.4076 L1982.3893 803.4076 L1983.8893 803.4076 L1983.8893 801.9076 L1983.8893 -204.393 Z" stroke="none" clip-path="url(#clipPath2)"/>
+      <path fill="none" d="M1980.8893 -204.393 L1980.8893 800.4076 L1740.8893 800.4076 L1740.8893 801.9076 L1740.8893 941.681 L1743.8893 941.681 L1743.8893 803.4076 L1982.3893 803.4076 L1983.8893 803.4076 L1983.8893 801.9076 L1983.8893 -204.393 Z" stroke-width="1" clip-path="url(#clipPath2)" stroke="black"/>
+    </g>
+    <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="sans-serif" transform="matrix(1,0,0,1,1686,757)" stroke-linecap="butt">
+      <text x="2035.3953" xml:space="preserve" y="642.5038" clip-path="url(#clipPath2)" stroke="none">untagged</text>
+      <text x="2001.3845" xml:space="preserve" y="657.205" clip-path="url(#clipPath2)" stroke="none">VID 2000 &lt;-&gt; VID 453</text>
+    </g>
+    <g stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" stroke="rgb(255,204,0)" stroke-width="3" stroke-miterlimit="1.45">
       <path d="M1920.8893 -204.393 L1920.8893 941.681 L1923.8893 941.681 L1923.8893 -204.393 Z" stroke="none" clip-path="url(#clipPath2)"/>
       <path fill="none" d="M1920.8893 -204.393 L1920.8893 941.681 L1923.8893 941.681 L1923.8893 -204.393 Z" stroke-width="1" clip-path="url(#clipPath2)" stroke="black"/>
     </g>
@@ -4676,14 +4684,14 @@
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="sans-serif" transform="matrix(1,0,0,1,1686,757)" stroke-linecap="butt">
       <text x="2689.1599" xml:space="preserve" y="352.4962" clip-path="url(#clipPath2)" stroke="none">SSID "parking"</text>
       <text x="2684.0828" xml:space="preserve" y="367.1974" clip-path="url(#clipPath2)" stroke="none">internet commun</text>
-      <text x="2703.7527" xml:space="preserve" y="381.8986" clip-path="url(#clipPath2)" stroke="none">VID 2000</text>
+      <text x="2707.0896" xml:space="preserve" y="381.8986" clip-path="url(#clipPath2)" stroke="none">VID 453</text>
     </g>
     <g stroke-linecap="butt" transform="matrix(1,0,0,1,1686,757)" fill="rgb(153,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" stroke="rgb(153,204,0)" stroke-width="3" stroke-miterlimit="1.45">
       <path d="M2409.7178 140.8418 L2409.7178 142.3418 L2409.7178 1041.681 L1623.8893 1041.681 L1623.8893 971.681 L1620.8893 971.681 L1620.8893 1043.181 L1620.8893 1044.681 L2412.7178 1044.681 L2412.7178 1043.181 L2412.7178 143.8418 L2625.8279 143.8418 L2625.8279 140.8418 Z" stroke="none" clip-path="url(#clipPath2)"/>
       <path fill="none" d="M2409.7178 140.8418 L2409.7178 142.3418 L2409.7178 1041.681 L1623.8893 1041.681 L1623.8893 971.681 L1620.8893 971.681 L1620.8893 1043.181 L1620.8893 1044.681 L2412.7178 1044.681 L2412.7178 1043.181 L2412.7178 143.8418 L2625.8279 143.8418 L2625.8279 140.8418 Z" stroke-width="1" clip-path="url(#clipPath2)" stroke="black"/>
     </g>
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="'Tahoma'" transform="matrix(1,0,0,1,1686,757)" stroke-linecap="butt">
-      <text x="2427.4717" xml:space="preserve" y="590.2829" clip-path="url(#clipPath2)" stroke="none">VID 451, 452, 2000</text>
+      <text x="2427.4717" xml:space="preserve" y="590.2829" clip-path="url(#clipPath2)" stroke="none">VID 451, 452, 453</text>
       <text x="2427.4717" xml:space="preserve" y="604.7673" clip-path="url(#clipPath2)" stroke="none">PoE</text>
     </g>
   </g>
