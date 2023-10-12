@@ -1,0 +1,11 @@
+=== pushing classless static routes via DHCP
+
+[source]
+----
+set service dhcp-server shared-network-name admin subnet 10.134.0.0/24 static-route  destination-subnet 10.138.0.0/16
+----
+
+[source]
+----
+set service dhcp-server shared-network-name admin subnet 10.134.0.0/24 static-route  router 10.134.0.152
+----
