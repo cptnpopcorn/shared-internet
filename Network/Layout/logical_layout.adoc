@@ -69,6 +69,9 @@ Derived from our physical network layout and the need to effectively separate mo
 |2200
 |public services (servers)
 
+|2300
+|boisrond WiFi
+
 |===
 
 === Management and services
@@ -116,6 +119,10 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 |10.132.0.0/16
 |2200
 
+|boisrond WiFi
+|10.136.0.0/16
+|2300
+
 |===
 
 ==== Devices
@@ -130,9 +137,10 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 .3+|Edge Router X											|10.134.0.152/24
 															|192.168.x.y		|4__nn__
 															|NetPlus static		|100
-|Nokia XS-010X-Q 		   	.11+|Local Elec A (Tines 3C)	|bridge				|11
-.3+|Mikrotik CCR2004 router									|10.133.0.1/16		|2000
+|Nokia XS-010X-Q 		   	.13+|Local Elec A (Tines 3C)	|bridge				|11
+.4+|Mikrotik CCR2004 router									|10.133.0.1/16		|2000
 															|10.132.0.1/16		|2200
+															|10.136.0./16		|2300
 															|Init7 DHCP			|-
 |DGS-3130 Stack ID 4										|10.134.0.4/24		.4+|1
 |DGS-3130 Stack ID 5                                        |10.134.0.5/24
@@ -141,6 +149,7 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
                                                     		|10.132.0.132/16	|2200
 .2+|Services (Raspberry Pi 4, server)						|10.134.0.133/16	|1
 															|10.132.0.133/16	|2200
+|Archer C80 (WiFi router, boisrond)							|10.136.x.y/16 DHCP	|2300
 |DGS-3130 Stack ID 7  		.2+|Local Elec B (Tines 1)		|10.134.0.7/24      .3+|1
 |DGS-1210-16                                                |10.134.0.111/24
 .2+|RB260GSP             	.2+|Local SIN B					|DHCP  / check on Edge Router X
