@@ -67,7 +67,7 @@ To connect to the _services subnet_, a VLAN based connection needs to be added:
 [[defaultroute,Default Route]]
 * *Under both "IPv4" and "IPv6" => "Show" => select "Never use this network for default route"*
 
-Once the device is connected to the building network, you can check 
+Once the device is connected to the building network, you can check the aquired addresses with `ip addr list` 
 
 === Technical Server(s)
 
