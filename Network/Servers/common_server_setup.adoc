@@ -23,7 +23,11 @@ Enter `sudo armbian-config` to setup the system.
 
 * System => Avahi => enable
 * Personal => Hostname => set (`auth`, `services`, ...)
-* Network => Add local WiFi for more comfortable access during further configuration (under "Activate...")
+
+=== Initial Network Setup
+
+* enter the network config `sudo nmtui` 
+* Add local WiFi for more comfortable access during further configuration (under "Activate...")
 
 === Docker installation
 
