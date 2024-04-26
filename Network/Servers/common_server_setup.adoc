@@ -1,0 +1,81 @@
+= General setup for our servers
+
+== Preparing the system disk (MMC, SSD..)
+
+* Flash a stock armbian suitable for the RBPi or similar device
+* To use all space on flashed disk, grow root partition to full size using `gparted` or `parted`
+
+=== First Boot
+
+* Plug serial probe (USB / UART) or connect via RJ45 to DHCP enabled local network
+* Boot first time, login either via serial console or via network (hostname will be something like `rpi4b`)
+* Armbian initial setup: Set common admin password for root user
+* Use common admin username for new principal user
+* Do not set language based on location, but choose en_US, continent Europe, Switzerland
+
+=== CPU Frequency Scaling
+
+* Install the cpupower utilities `sudo apt install linux-cpupower`
+
+=== Armbian Configuration
+
+Enter `sudo armbian-config` to setup the system.
+
+* System => Avahi => enable
+* Personal => Hostname => set (`auth`, `services`, ...)
+* Network => Add local WiFi for more comfortable access during further configuration (under "Activate...")
+
+=== Docker installation
+
+* follow instructions on https://docs.docker.com/engine/install/debian/#install-using-the-repository ("uninstall" section can be skipped)
+* also do an `sudo apt upgrade` to update all packages to the latest versions
+
+== Network Production Setup
+
+For easy troubleshooting, the server should always work plug-and-play by connecting it to any DHCP enabled network, via RJ45. For more comfort, a personal WiFi connection may be left configured in case of an intervention.
+
+Our network has an internal administration subnet and a 'services' subnet. All servers shall be present in both and thus need two logical network interfaces configured for their Ethernet interface.
+
+Depending on their role, the primary network used as an internet gateway may be the admin subnet or the services subnet. This choice determines via which external address it will be reachable for chosen services. The 2nd subnet shall not be used as a default gateway, because this would break the routing.
+
+=== Address Assignment
+
+To reduce configuration overhead for all individual servers, all interfaces shall use DHCP for address and routing assignment. If they need a fixed address, it is configured on the routers, using their MAC address to pin them to a specific IP.
+
+=== Network Interfaces
+
+==== Admin Subnet
+
+The default Ethernet link can be used as-is to connect to the admin subnet since it is managed using DHCP and untagged packets.
+
+[[services]]
+==== Services Subnet
+
+To connect to the _services subnet_, a VLAN based connection needs to be added:
+
+* enter the network config `sudo nmtui`
+* "Edit a Connection" => "Add" => "VLAN" => "Create"
+* "Name" = "services"
+* "Parent" = "end0" (the name of the Ethernet device)
+* "VLAN id" = 2200 (current public services VLAN)
+
+[[defaultroute,Default Route]]
+* *Under both "IPv4" and "IPv6" => "Show" => select "Never use this network for default route"*
+
+Once the device is connected to the building network, you can check 
+
+=== Technical Server(s)
+
+Those will have the admin network as their primary subnet. That means the default Ethernet link can be used as the default gateway, and the 2nd connection reachable from the internal network only. The <<services>> configuration can be left as-is.
+
+=== Public Services Server(s)
+
+If the servers should be reachable via the shared internets public address, for common services, the <<services>> need to become the primary gateway.
+
+* enter the network config `sudo nmtui`
+* "Edit a Connection" => "Wired Connection 1" => "Edit"
+* *deactivate* the <<defaultroute>>
+* "Edit a Connection" => "services" => "Edit""
+* *activate* the <<defaultroute>> (unselect the option)
+
+Note: after doing this, the device will not have internet connection when connected to a home network via RJ45. It will only get a gateway route when connected to the services VLAN or via another medium (such as WiFi).
