@@ -8,7 +8,7 @@
 === First Boot
 
 * Plug serial probe (USB / UART) or connect via RJ45 to DHCP enabled local network
-* Boot first time, login either via serial console or via network (hostname will be something like `rpi4b`)
+* Boot first time, login either via serial console or via network (hostname will be something like `rpi4b`, armbian default login is `root` with `1234`)
 * Armbian initial setup: Set common admin password for root user
 * Use common admin username for new principal user
 * Do not set language based on location, but choose en_US, continent Europe, Switzerland
