@@ -16,6 +16,7 @@
 === CPU Frequency Scaling
 
 * Install the cpupower utilities `sudo apt install linux-cpupower`
+* make sur we're using a modern scheduler: `sudo cpupower frequency-set --governor schedutil`
 
 === Armbian Configuration
 
