@@ -136,7 +136,7 @@ To split the Shared Internet and a Tech Codha subnetworks we need to restrict mu
 * Do the same for other Switches, selecting the specific unit at the previous page on menu *L2 Features > VLAN > VLAN Interface*.
 
 == Setup DHCP Snooping
-
+Warning!!! We used that option, but the performace was going down. So, we disabled that option!
 Snooping will sniff DHCP communication to track which MAC gets what IP on what port.
 
 * Connect to the Master Switch via MGMT port.
