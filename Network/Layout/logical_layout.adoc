@@ -169,6 +169,10 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 * internet clients on the isolated VLAN via the main switches.
 * public servers via the services network / VLAN.
 
+===== Management
+
+The web interface is available internally (or over VPN) at port *8080*, not standard port 80.
+
 ==== Technical router (Edge router X, building C)
 
 ===== Connections
@@ -186,5 +190,6 @@ This device will also provide backup storage for the "services" server.
 === Services
 
 For various community services, a "services" server is present in the services subnet / VLAN.
+
 
 This device will also provide backup storage for the "auth" server.
