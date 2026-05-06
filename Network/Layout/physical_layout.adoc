@@ -97,6 +97,7 @@ The technical room in building A is equipped with
 The technical room in building B is equipped with
 
 * A PoE injector that provides power to the WiFi router in the parking level -2
+* A PoE injector that powers a relay board (extracteur control), connected to the DGS-1210-16 on an access port of VLAN 2400 (IoT / relays)
 
 === Local SIN
 
