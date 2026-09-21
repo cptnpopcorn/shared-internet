@@ -36,8 +36,6 @@ Of those 4 fibers,
 * 1 by NetPlus Léman
 * 1 is left available for our in-house network
 
-Note that
-
 == Building-to-Building
 
 The buildings are interconnected by OS2 monomode fiber cables including 6 strands. Connections exist between the technical rooms as follows
@@ -82,6 +80,7 @@ The technical room in building C is equipped with
 
 * A modem serving a subscription providing a set of public IP addresses, to allow incoming connections to specific technical devices, as well as outgoing connectivity for more technical devices using a shared public IP address via DHCP + masquerading NAT
 * A layer 3 router of model Ubiquity Edge Router X. This router provides DHCP and NAT masquerading for the outgoing connectivity for a subset of technical devices.
+* A PoE injector powering a relay board (extracteur control), static IP `10.137.0.50`, on the pre-wired port 15 (VLAN 470 access)
 
 ==== Building A
 
@@ -90,14 +89,27 @@ The technical room in building A is equipped with
 * A 10GBit XGS-PON media converter Nokia XS-010X-Q
 * A MikroTik CR2004-1G-12S+2XS gateway router
 * A Banana Pi to host a user database and authentication services (LDAP, RADIUS), with an internal DNS entry 'auth.eco'
-* A Raspberry Pi 2B to provide user services (collaboration, organization, documentation), with an internal DNS entry 'services.eco'
+* A Raspberry Pi 4 to provide user services (collaboration, organization, documentation), with an internal DNS entry 'services.eco'
+* A PoE injector powering a relay board (extracteur control), static IP `10.137.0.30`, on the pre-wired port 15 (VLAN 470 access)
 
 ==== Building B
 
 The technical room in building B is equipped with
 
 * A PoE injector that provides power to the WiFi router in the parking level -2
-* A PoE injector that powers a relay board (extracteur control), connected to the DGS-1210-16 on an access port of VLAN 2400 (IoT / relays)
+* A PoE injector that powers a relay board (extracteur control), with the static IP `10.137.0.10`, connected to the building's DGS-1210-16 on *port 15* — an access port of VLAN 470 (IoT / relays, PVID 470)
+
+[NOTE]
+====
+The relay VLAN (470, `10.137.0.0/16`) is routed by the Mikrotik in building A, so
+a relay's frames travel tagged across the trunks:
+building B DGS-1210 (port 20) -> DGS-3130 stack (eth7/0/24 … eth4/0/24) ->
+building A DGS-1210 (ports 20 and 18) -> Mikrotik `sfp-sfpplus10`.
+On *every* building's DGS-1210, *port 15* is pre-wired as a VLAN 470 access port
+(untagged, PVID 470), so a relay board can be dropped into any building without
+further switch configuration. A relay board is deployed in each of the three
+buildings.
+====
 
 === Local SIN
 

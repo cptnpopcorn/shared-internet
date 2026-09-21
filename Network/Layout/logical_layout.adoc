@@ -58,7 +58,7 @@ Derived from our physical network layout and the need to effectively separate mo
 |*technical monitoring:* devices configured for public static IP~P__n__~ with __n__ = { 1 .. 12 }
 
 |4__nn__
-|*technical monitoring:* devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router
+|*technical monitoring:* devices in separate DHCP enabled IPv4 subnets behind masquerading NAT + DHCP router. (VID 470 borrows this range but is a public-services VLAN — see the note below.)
 
 |2000
 |*shared internet:* uplink to modem / router for community uplink with public dynamic IP / primary of private VLAN
@@ -72,10 +72,23 @@ Derived from our physical network layout and the need to effectively separate mo
 |2300
 |boisrond WiFi
 
-|2400
-|public services: IoT / relays (controlled by services.eco, isolated from shared internet clients)
+|470
+|*public services:* IoT / relays, controlled by services.eco and isolated from shared-internet clients. Numbered in the 4__nn__ range so it reads as a "technical" VLAN, but routed by the Mikrotik like the other public-services VLANs — see the note below.
 
 |===
+
+[NOTE]
+====
+*VID 470 is an intentional exception to the 4__nn__ numbering rule.* The other
+4__nn__ VLANs are technical-monitoring subnets routed by the Edge Router X
+(building C) behind masquerading NAT, each in its own private IPv4 subnet with
+DHCP (usually a `192.168.__x__.0/24` range). VID 470 only *borrows* the
+technical-looking number: it is a
+public-services VLAN routed by the *Mikrotik* (building A) with no NAT, in the
+flat `10.137.0.0/16` range — just like VID 2200/2300. It carries the extracteur
+relay boards, which are reachable only from the services server (services.eco,
+`10.132.0.133`) and isolated from the shared-internet clients.
+====
 
 === Management and services
 
@@ -128,7 +141,7 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 
 |IoT / relays (public services)
 |10.137.0.0/16
-|2400
+|470
 
 |===
 
@@ -137,19 +150,20 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 |===
 |Device(s)                  |Location                       |IP address/mask   h|VLAN ID
 
-|NetPlus Modem				.7+|Local Elec C (Tines 5C)		|bridge				|100
+|NetPlus Modem				.8+|Local Elec C (Tines 5C)		|bridge				|100
 |DGS-3130 Stack ID 1										|10.134.0.1/24      .4+|1
 |DGS-3130 Stack ID 2                                        |10.134.0.2/24
 |DGS-1210-16                                                |10.134.0.151/24
 .3+|Edge Router X											|10.134.0.152/24
 															|192.168.x.y		|4__nn__
 															|NetPlus static		|100
+|Relay (extracteur)                                         |10.137.0.50/16		|470
 |Asus RT-AX52				|BAM (local musique)			|10.133.x.y			|2100
-|Nokia XS-010X-Q 		   	.14+|Local Elec A (Tines 3C)	|bridge				|11
+|Nokia XS-010X-Q 		   	.15+|Local Elec A (Tines 3C)	|bridge				|11
 .5+|Mikrotik CCR2004 router									|10.133.0.1/16		|2000
 															|10.132.0.1/16		|2200
-															|10.136.0./16		|2300
-															|10.137.0.1/16		|2400
+															|10.136.0.1/16		|2300
+															|10.137.0.1/16		|470
 															|Init7 DHCP			|-
 |DGS-3130 Stack ID 4										|10.134.0.4/24		.4+|1
 |DGS-3130 Stack ID 5                                        |10.134.0.5/24
@@ -159,9 +173,10 @@ _DHCP => 10.133.32.1 ... 10.133.255.254_
 .2+|Services (Raspberry Pi 4, server)						|10.134.0.133/16	|1
 															|10.132.0.133/16	|2200
 |Archer C80 (WiFi router, boisrond)							|10.136.x.y/16 DHCP	|2300
+|Relay (extracteur)                                         |10.137.0.30/16		|470
 |DGS-3130 Stack ID 7  		.3+|Local Elec B (Tines 1)		|10.134.0.7/24      .2+|1
 |DGS-1210-16                                                |10.134.0.111/24
-|Relay (extracteur)                                         |10.137.0.10/16		|2400
+|Relay (extracteur)                                         |10.137.0.10/16		|470
 .2+|RB260GSP             	.2+|Local SIN B					|DHCP  / check on Edge Router X	|1
 															|bridge				|450
 .4+|DAP-2610          		.4+|Parking						|10.134.0.112/24	|1
